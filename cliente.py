@@ -7,7 +7,7 @@ class Cliente:
             raise ValueError("ID não pode ser negativo")
         else:
             self.__id = id
-
+            
 
         if nome == "":
             raise ValueError("Nome não pode estar em branco")
