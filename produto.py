@@ -17,7 +17,7 @@ class Produto:
         elif preco == " ":
             raise ValueError("Preço não pode estar vazio!")
         else:
-            self.__preco
+            self.__preco = preco
 
         if estoque < 0:
             raise ValueError("Estoque não pode ser negativo!")
