@@ -10,6 +10,7 @@ class Venda:
         self.__total = 0
         self.__carrinho = True
         self.__id_cliente = 0
+        carrinho = []
 
     def set_id(self, v):
         if v < 0:

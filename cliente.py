@@ -127,6 +127,12 @@ class Clientes:
         return [str(cliente) for cliente in cls.objetos]
     
     @classmethod
+    def listar_objetos(cls):
+        cls.abrir()
+        return cls.objetos
+
+    
+    @classmethod
     def listar_id(cls, id):
         cls.abrir()
         for obj in cls.objetos:
