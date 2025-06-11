@@ -50,6 +50,10 @@ class UI:
                 print("| Cadastro de Produtos                           |")
                 print("| 5-Inserir, 6-Listar, 7-Atualizar, 8-Excluir    |")
                 print("|------------------------------------------------|")
+                print("|------------------------------------------------|")
+                print("| Cadastro de Clientes                           |")
+                print("| 9-Inserir, 10-Listar, 11-Atualizar, 12-Excluir |")
+                print("|------------------------------------------------|")
                 print("| 99-FIM                                         |")
                 print("|------------------------------------------------|")
             else:
@@ -103,12 +107,41 @@ class UI:
                 id = int(input("ID do produto: "))
                 View.produto_excluir(id)
 
+            elif op == 9:
+                nome = input("Nome: ")
+                email = input("Email: ")
+                fone = input("Número para contato: ")
+                cliente = View.cliente_inserir(nome, email, fone)
+
+            elif op == 10:
+                for cat in View.cliente_listar():
+                    print(cat)
+
+            elif op == 11:
+                for c in View.cliente_listar():
+                    print(c)
+                cliente_para_att = int(input("Informe o ID do cliente que deseja atualizar: "))
+                c = View.listar_id(cliente_para_att)
+                nome = input("Novo nome: ")
+                email= input("Novo email: ")
+                fone = input("Novo numero para contato: ")
+
+                print("Dados antigos")
+                print(c)
+                c.set_nome(nome)
+                c.set_email(email)
+                c.set_fone(fone)
+                print("Dados atuais")
+                print(c)
+
+
             #CLIENTE
             elif op == 13:
                 venda = Venda(0, cliente.get_id(), 0)
                 Vendas.inserir(venda)
                 UI.carrinho = venda.get_id()
                 print(f"Carrinho iniciado com ID {UI.carrinho}")
+
             elif op == 14:
                 for v in Vendas.listar():
                     print(v)
@@ -133,6 +166,9 @@ class UI:
                     View.limpar_carrinho(UI.carrinho)
                     print("Compra finalizada!")
                     UI.carrinho = None 
+
+            elif op == 99:
+                quit()
             else:
                 print("Opção inválida.")
     

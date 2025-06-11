@@ -24,6 +24,10 @@ class View:
     @staticmethod
     def cliente_listar():
         return Clientes.listar_objetos()
+
+    @staticmethod
+    def listar_id(id):
+        return Clientes.listar_id()
     
     @staticmethod
     def cliente_atualizar(nome, email, fone, id):
