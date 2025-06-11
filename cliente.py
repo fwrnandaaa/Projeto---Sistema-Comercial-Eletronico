@@ -3,29 +3,10 @@ import json
 
 class Cliente:
     def __init__(self, nome, email, fone, id=0):
-        if id < 0:
-            raise ValueError("ID não pode ser negativo")
-        else:
-            self.__id = id
-            
-
-        if nome == "":
-            raise ValueError("Nome não pode estar em branco")
-        else:
-            self.__nome = nome
-
-
-        if email == "":
-            raise ValueError("Email não pode estar em branco")
-        else:
-            self.__email = email
-
-
-        if fone == "":
-            raise ValueError("Telefone não pode estar em branco")
-        else:
-            self.__fone = fone
-
+        self.set_id(id)
+        self.set_nome(nome)
+        self.set_email(email)
+        self.set_fone(fone)
 
     # getters
     def get_id(self):
@@ -46,9 +27,11 @@ class Cliente:
 
     # setters
     def set_id(self, v):
+        v = int(v)  # conversão segura para inteiro
         if v < 0:
             raise ValueError("ID não pode ser negativo")
-        self.__id = v
+        else:
+            self.__id = v
 
     def set_nome(self, v):
         if v == "":
@@ -80,9 +63,6 @@ class Cliente:
             "email": self.__email,
             "fone": self.__fone
         }
-
-
-
 
 class Clientes:
     objetos = []  
@@ -125,6 +105,7 @@ class Clientes:
     def listar(cls):
         cls.abrir()
         return [str(cliente) for cliente in cls.objetos]
+
     
     @classmethod
     def listar_objetos(cls):

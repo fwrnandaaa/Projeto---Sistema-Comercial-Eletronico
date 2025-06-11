@@ -34,7 +34,7 @@ class Categoria:
         else: self.__id = v
 
 class Categorias:
-    objetois = []
+    objetos = []
     @classmethod
     def abrir(cls):
         cls.objetos = []

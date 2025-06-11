@@ -1,0 +1,16 @@
+[
+    {
+        "id": 6,
+        "descricao": "Chinelo",
+        "preco": 20.99,
+        "estoque": 10,
+        "id_categoria": 0
+    },
+    {
+        "id": 6,
+        "descricao": "Blusa",
+        "preco": 50.98,
+        "estoque": 5,
+        "id_categoria": 0
+    }
+]

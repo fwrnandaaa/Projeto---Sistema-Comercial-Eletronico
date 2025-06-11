@@ -3,14 +3,11 @@ from datetime import datetime
 
 class Venda:
     def __init__(self, id):
-        if id <0:
-            raise ValueError("ID não pode ser negativo")
-        else: self.__id = id
-        self.__data = datetime.now()
-        self.__total = 0
-        self.__carrinho = True
-        self.__id_cliente = 0
-        carrinho = []
+        self.set_id(id)
+        self.set_data(datetime.now())
+        self.set_total(0)
+        self.set_carrinho(True)
+        self.set_id_cliente(0)
 
     def set_id(self, v):
         if v < 0:
@@ -38,8 +35,10 @@ class Venda:
   
     def get_id_cliente(self):
         return self.__id_cliente
+    
     def __str__(self):
-           return f"{self.__id} - {self.__data.strftime("%d/%m/%Y %H:%M")} - R$ {self.__total:.2f}"
+           return f"{self.__id} - {self.__data.strftime('%d/%m/%Y %H:%M')} - R$ {self.__total:.2f}"
+    
     def to_json(self):
         dic = {}
         dic["id"] = self.__id       
@@ -67,14 +66,13 @@ class Vendas:      # Persistência - Armazena os objetos em um arquivo/banco de 
         for obj in cls.objetos:
             if obj.get_id() == id: return obj
         return None                
+    
     @classmethod
     def excluir(cls, obj):
         x = cls.listar_id(obj.get_id())
         if x != None: 
-            for obj in cls.objetos:
-                if x.get_id() == obj.get_id():
-                    cls.objetos.remove(x)
-                    cls.salvar()
+            cls.objetos.remove(x)
+            cls.salvar()
     @classmethod
     def abrir(cls):
         cls.objetos = []
@@ -90,25 +88,22 @@ class Vendas:      # Persistência - Armazena os objetos em um arquivo/banco de 
                     cls.objetos.append(obj)
         except FileNotFoundError:
             pass            
+    
     @classmethod
     def salvar(cls):
         with open("vendas.json", mode="w") as arquivo:
-            json.dump(cls.objetos, arquivo, default = Venda.to_json)
+            json.dump([obj.to_json() for obj in cls.objetos], arquivo, indent=4)
+    
     @classmethod
     def listar(cls):
         cls.abrir()
         return cls.objetos
-    @classmethod
-    def listar_id(cls, id):
-        cls.abrir()
-        for obj in cls.objetos:
-            if obj.get_id() == id: return obj
-        return None               
+        
     @classmethod
     def atualizar(cls, obj):
-        x = cls.listar_id(obj.id)
-        if x != None: 
-            cls.objetos.remove(x)
-            cls.objetos.append(obj)
+        x = cls.listar_id(obj.get_id())
+        if x != None:
+            index = cls.objetos.index(x)
+            cls.objetos[index] = obj
             cls.salvar()
 
