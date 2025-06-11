@@ -26,5 +26,13 @@
     {
         "id": 8,
         "descricao": "Brinquedos"
+    },
+    {
+        "id": 9,
+        "descricao": "Alimentos"
+    },
+    {
+        "id": 10,
+        "descricao": "Produtos de limpeza"
     }
 ]

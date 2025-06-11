@@ -3,12 +3,12 @@ import json
 from categoria import Categoria, Categorias
 
 class Produto:
-    def __init__(self, descricao, preco, estoque, id=0):
+    def __init__(self, descricao, preco, estoque, id_categoria,id=0):
         self.set_id(id)
         self.set_descricao(descricao)
         self.set_preco(preco)
         self.set_estoque(estoque)
-        self.set_id_categoria(0)
+        self.set_id_categoria(id_categoria)
         
     def set_id(self, id):
         if id < 0:

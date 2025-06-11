@@ -9,18 +9,37 @@ class UI:
     def menu():
         print("|------------------------------------------------|")
         print("|                BEM-VINDO                       |")
-        print("| Insira seu email                               |")
+        print("| 1 - Fazer login                                |")
+        print("| 2 - Fazer cadastro                             |")
+        print("| 3 - Visualizar produtos                        |")
         print("|------------------------------------------------|")
+        try:
+            op = int(input("Selecione uma opção: "))
+        except ValueError:
+                print("Por favor, insira um número válido.")
+                UI.menu()
+        if op == 1:
 
-        email = input("Email: ")
-        print()
+            email = input("Email: ")
+            print()
 
-        cliente = next((c for c in View.cliente_listar() if c.get_email() == email), None)
-        if not cliente:
-            print("Cliente não encontrado. Faça o cadastro.")
-            return
+            cliente = next((c for c in View.cliente_listar() if c.get_email() == email), None)
+            if not cliente:
+                print("Cliente não encontrado. Faça o cadastro.")
+                return 
+            UI.usuario_logado = cliente
 
-        UI.usuario_logado = cliente
+        if op == 2:
+            nome = input("Nome: ")
+            email = input("Email: ")
+            fone = input("Número para contato: ")
+            cliente = View.cliente_inserir(nome, email, fone)
+            UI.menu()
+        
+        if op == 3:
+            for c in View.produto_listar():
+                print(c)
+            UI.menu()
 
         while True:
             if cliente.get_email() == "admin":
@@ -69,8 +88,8 @@ class UI:
                 descricao = input("Nome do produto: ")
                 preco = float(input("Preço: "))
                 estoque = int(input("Estoque: "))
-                id = int(input("ID categoria: "))
-                View.produto_inserir(descricao, preco, estoque, id)    
+                id_cat = int(input("ID categoria: "))
+                View.produto_inserir(descricao, preco, estoque, id_cat)    
             elif op == 6:
                 for prod in View.produto_listar():
                     print(prod)

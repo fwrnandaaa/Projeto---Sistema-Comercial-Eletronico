@@ -18,7 +18,7 @@ class View:
     # CLIENTE
     @staticmethod
     def cliente_inserir(nome, email, fone):
-        c = Cliente(0, nome, email, fone)
+        c = Cliente(nome, email, fone, 0)
         Clientes.inserir(c)
 
     @staticmethod
@@ -26,8 +26,8 @@ class View:
         return Clientes.listar_objetos()
     
     @staticmethod
-    def cliente_atualizar(id, nome, email, fone):
-        c = Cliente(id, nome, email, fone)
+    def cliente_atualizar(nome, email, fone, id):
+        c = Cliente(nome, email, fone, id)
         Clientes.atualizar(c)
 
     @staticmethod
