@@ -41,8 +41,12 @@ class UI:
                 print(c)
             UI.menu()
 
+        if UI.usuario_logado is None:
+            print("Erro: Nenhum usuário logado.")
+            return
         while True:
-            if cliente.get_email() == "admin":
+            if UI.usuario_logado.get_email() == "admin":
+
                 print("|------------------------------------------------|")
                 print("| Cadastro de Categorias                         |")
                 print("| 1-Inserir, 2-Listar, 3-Atualizar, 4-Excluir    |")
