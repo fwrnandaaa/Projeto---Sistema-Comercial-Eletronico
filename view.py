@@ -36,7 +36,7 @@ class View:
 
     @staticmethod
     def cliente_excluir(id):
-        c = Cliente(id, "", "", "")
+        c = Cliente("teste", "teste", "teste", id)
         Clientes.excluir(c)
 
     # CARRINHO
@@ -161,7 +161,13 @@ class View:
         if carrinho:
             carrinho.set_total(0)
             Vendas.atualizar(carrinho)
-
+    @staticmethod
+    def total_carrinho(id_carrinho):
+        total = 0
+        for item in VendasItens.listar():
+            if item.get_id_venda() == id_carrinho:  # Aqui está a correção
+                total += item.get_qtd() * item.get_preco()
+        return total
     # VER CARRINHO
     @staticmethod
     def ver_carrinho(id_carrinho):

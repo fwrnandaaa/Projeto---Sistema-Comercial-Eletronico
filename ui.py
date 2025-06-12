@@ -115,28 +115,21 @@ class UI:
                 nome = input("Nome: ")
                 email = input("Email: ")
                 fone = input("Número para contato: ")
-                cliente = View.cliente_inserir(nome, email, fone)
+                View.cliente_inserir(nome, email, fone)
 
             elif op == 10:
                 for cat in View.cliente_listar():
                     print(cat)
 
             elif op == 11:
-                for c in View.cliente_listar():
-                    print(c)
                 cliente_para_att = int(input("Informe o ID do cliente que deseja atualizar: "))
-                c = View.listar_id(cliente_para_att)
                 nome = input("Novo nome: ")
                 email= input("Novo email: ")
                 fone = input("Novo numero para contato: ")
-
-                print("Dados antigos")
-                print(c)
-                c.set_nome(nome)
-                c.set_email(email)
-                c.set_fone(fone)
-                print("Dados atuais")
-                print(c)
+                View.cliente_atualizar(nome, email, fone, cliente_para_att)
+            elif op==12:
+                id = int(input("ID do cliente: "))
+                View.cliente_excluir(id)
 
 
             #CLIENTE
@@ -155,6 +148,15 @@ class UI:
                 else:
                     for item in View.ver_carrinho(UI.carrinho):
                         print(item)
+                total = View.total_carrinho(UI.carrinho)
+                print("Total do carrinho",total)
+                if total >= 60:
+                    desconto_info = View.verificar_desconto_carrinho(UI.carrinho)
+                    for chave, valor in desconto_info.items():
+                        print(f"{chave}: {valor}")
+
+                
+
             elif op == 16:
                 if UI.carrinho is None:
                     print("Nenhum carrinho iniciado. Inicie um antes.")
