@@ -3,12 +3,12 @@ import json
 from categoria import Categoria, Categorias
 
 class Produto:
-    def __init__(self, descricao, preco, estoque, id_categoria,id=0):
+    def __init__(self, descricao, preco, estoque,id=0):
         self.set_id(id)
         self.set_descricao(descricao)
         self.set_preco(preco)
         self.set_estoque(estoque)
-        self.set_id_categoria(id_categoria)
+        self.set_id_categoria(0)
         
     def set_id(self, id):
         if id < 0:
@@ -38,10 +38,10 @@ class Produto:
         return self.__preco
     
     def set_estoque(self, estoque):
+        if not isinstance(estoque, int):
+            raise ValueError("Estoque deve ser inteiro!")
         if estoque < 0:
             raise ValueError("Estoque não pode ser negativo!")
-        elif estoque == " ":
-            raise ValueError("Estoque não pode estar vazio!")
         else:
             self.__estoque = estoque
 
@@ -51,8 +51,10 @@ class Produto:
     def get_id_categoria(self):
         return self.__id_categoria
 
-    def set_id_categoria(self, v):
-        self.__id_categoria = v
+    def set_id_categoria(self, id_categoria):
+        if id_categoria < 0:
+            raise ValueError("ID categoria não pode ser negativo!")
+        self.__id_categoria = id_categoria
 
     def __str__(self):
         return f"{self.__id} - {self.__descricao} - R$ {self.__preco:.2f} - Estoque: {self.__estoque} - ID Categoria: {self.__id_categoria}"
@@ -65,17 +67,16 @@ class Produto:
             "estoque": self.get_estoque(),
             "id_categoria": self.get_id_categoria()
     }
-    
+
 class Produtos:
     objetos = []
     @classmethod
     def inserir(cls, obj):
         cls.abrir()
         m = 0
-        for x in cls.objetos:
-            if x.get_id() > m:
-                m = x.get_id()
-        obj.set_id = m + 1
+        if len(cls.objetos) > 0:
+            m = max(cls.objetos, key=lambda c: c.get_id()).get_id()
+        obj.set_id(m + 1)
         cls.objetos.append(obj)
         cls.salvar()
 
@@ -94,7 +95,7 @@ class Produtos:
     
     @classmethod
     def atualizar(cls, obj):
-        x = cls.listar_id(obj.set_id)
+        x = cls.listar_id(obj.get_id())
         if x != None:
             cls.objetos.remove(x)
             cls.objetos.append(obj)
@@ -102,7 +103,7 @@ class Produtos:
 
     @classmethod
     def excluir(cls, obj):
-        x = cls.listar_id(obj.id)
+        x = cls.listar_id(obj.get_id())
         if x != None:
             cls.objetos.remove(x)
             cls.salvar()
@@ -115,7 +116,7 @@ class Produtos:
                 s = json.load(arquivo)
                 for dic in s:
                     obj = Produto(dic["descricao"], dic["preco"], dic["estoque"], dic["id"])
-                    obj.set_id_categoria = dic["id_categoria"]
+                    obj.set_id_categoria(dic["id_categoria"])
                     cls.objetos.append(obj)
         except FileNotFoundError:
             pass

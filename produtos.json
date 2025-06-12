@@ -1,37 +1,9 @@
 [
     {
-        "id": 0,
-        "descricao": "Chinelo",
-        "preco": 20.99,
-        "estoque": 10,
+        "id": 1,
+        "descricao": "Calcinha",
+        "preco": 14.99,
+        "estoque": 12,
         "id_categoria": 0
-    },
-    {
-        "id": 0,
-        "descricao": "Blusa",
-        "preco": 50.98,
-        "estoque": 5,
-        "id_categoria": 0
-    },
-    {
-        "id": 0,
-        "descricao": "Detergente",
-        "preco": 3.9,
-        "estoque": 20,
-        "id_categoria": 0
-    },
-    {
-        "id": 0,
-        "descricao": "Sabonete liquido",
-        "preco": 10.0,
-        "estoque": 15,
-        "id_categoria": 0
-    },
-    {
-        "id": 0,
-        "descricao": "Dorflex",
-        "preco": 7.0,
-        "estoque": 14,
-        "id_categoria": 3
     }
 ]

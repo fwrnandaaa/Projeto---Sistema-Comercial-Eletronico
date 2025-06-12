@@ -108,12 +108,12 @@ class View:
             Categorias.excluir(cat)
         else:
             raise ValueError("Categoria não encontrada para exclusão")
-
     
     # PRODUTO
     @staticmethod
     def produto_inserir(nome, preco, estoque, id_categoria):
-        p = Produto(nome, preco, estoque, id_categoria)
+        p = Produto(nome, preco, estoque)
+        p.set_id_categoria(id_categoria)
         Produtos.inserir(p)    
 
     @staticmethod
@@ -127,7 +127,7 @@ class View:
 
     @staticmethod
     def produto_excluir(id):
-        p = Produto("", 0.0, 0, 0, id)
+        p = Produto("", 0.0, 0, id)
         Produtos.excluir(p)
 
     # FINALIZAR VENDA

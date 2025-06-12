@@ -46,5 +46,11 @@
         "nome": "oi",
         "email": "tchau",
         "fone": "123"
+    },
+    {
+        "id": 10,
+        "nome": "Alesxandre",
+        "email": "alesxandre@gmail.com",
+        "fone": "(84)99924-6958"
     }
 ]

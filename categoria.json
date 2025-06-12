@@ -1,13 +1,5 @@
 [
     {
-        "id": 1,
-        "descricao": "Eletronicos"
-    },
-    {
-        "id": 2,
-        "descricao": "Eletr\u00f4nicos"
-    },
-    {
         "id": 3,
         "descricao": "Roupas"
     },
@@ -30,9 +22,5 @@
     {
         "id": 9,
         "descricao": "Alimentos"
-    },
-    {
-        "id": 10,
-        "descricao": "Produtos de limpeza"
     }
 ]

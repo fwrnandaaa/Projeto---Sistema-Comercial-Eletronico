@@ -92,8 +92,8 @@ class UI:
                 descricao = input("Nome do produto: ")
                 preco = float(input("Preço: "))
                 estoque = int(input("Estoque: "))
-                id_cat = int(input("ID categoria: "))
-                View.produto_inserir(descricao, preco, estoque, id_cat)    
+                id_categoria = int(input("ID categoria: "))
+                View.produto_inserir(descricao, preco, estoque, id_categoria)    
             elif op == 6:
                 for prod in View.produto_listar():
                     print(prod)
@@ -101,8 +101,8 @@ class UI:
                 descricao = input("Descricao: ")
                 preco = float(input("Novo preço: "))
                 estoque = int(input("Novo estoque: "))
-                id = int(input("ID categoria: "))
-                View.produto_atualizar(descricao, preco, estoque, id)
+                id_categoria = int(input("ID do produto: "))
+                View.produto_atualizar(descricao, preco, estoque, id_categoria)
             elif op == 8:
                 id = int(input("ID do produto: "))
                 View.produto_excluir(id)

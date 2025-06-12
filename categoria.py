@@ -77,7 +77,8 @@ class Categorias:
     def listar_id(cls, id):
         cls.abrir()
         for obj in cls.objetos:
-            if obj.get_id() == id: return obj
+            if obj.get_id() == id: 
+                return obj
         return None    
     @classmethod
     def atualizar(cls, obj):
