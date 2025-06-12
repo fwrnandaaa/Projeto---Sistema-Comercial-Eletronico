@@ -1,74 +1,20 @@
 [
     {
-        "id": 3,
-        "nome": "gabriel",
-        "email": "gabriel 1",
-        "fone": "a1212"
-    },
-    {
-        "id": 4,
-        "nome": "luiz",
-        "email": "luizblau",
-        "fone": "123455"
-    },
-    {
-        "id": 5,
-        "nome": 0,
+        "id": 1,
+        "nome": "admin",
         "email": "admin",
-        "fone": "admin"
+        "fone": "1234"
     },
     {
-        "id": 6,
-        "nome": 0,
+        "id": 2,
+        "nome": "Fernanda",
         "email": "fernanda",
-        "fone": "fernanda@gmail"
+        "fone": "12345"
     },
     {
-        "id": 7,
-        "nome": 0,
-        "email": "fernanda",
-        "fone": "fernanda@gmail"
-    },
-    {
-        "id": 8,
-        "nome": 0,
-        "email": "fernanda",
-        "fone": "fernandalogin"
-    },
-    {
-        "id": 9,
-        "nome": "oi",
-        "email": "tchau",
-        "fone": "123"
-    },
-    {
-        "id": 10,
-        "nome": "Alesxandre",
-        "email": "alesxandre@gmail.com",
-        "fone": "(84)99924-6958"
-    },
-    {
-        "id": 11,
+        "id": 3,
         "nome": "Erika",
-        "email": "erika@gmail.com",
-        "fone": "84 4002-8922"
-    },
-    {
-        "id": 12,
-        "nome": "Ale",
-        "email": "Ale@gmail.com",
-        "fone": "0000000"
-    },
-    {
-        "id": 13,
-        "nome": "ale",
-        "email": "ale@gmail.com",
-        "fone": "8888"
-    },
-    {
-        "id": 14,
-        "nome": "Cassio",
-        "email": "cassio@hotmail",
-        "fone": "1452"
+        "email": "erika",
+        "fone": "198673"
     }
 ]

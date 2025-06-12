@@ -1,9 +1,30 @@
 [
     {
         "id": 1,
-        "descricao": "Calcinha",
-        "preco": 14.99,
-        "estoque": 9,
-        "id_categoria": 0
+        "descricao": "Xiaomi Redmi Note 13 ",
+        "preco": 1200.0,
+        "estoque": 20,
+        "id_categoria": 2
+    },
+    {
+        "id": 4,
+        "descricao": "Notebook Positivo",
+        "preco": 1500.0,
+        "estoque": 8,
+        "id_categoria": 2
+    },
+    {
+        "id": 2,
+        "descricao": "Toalhas",
+        "preco": 69.99,
+        "estoque": 48,
+        "id_categoria": 3
+    },
+    {
+        "id": 3,
+        "descricao": "Pao de forma",
+        "preco": 8.5,
+        "estoque": 22,
+        "id_categoria": 1
     }
 ]
