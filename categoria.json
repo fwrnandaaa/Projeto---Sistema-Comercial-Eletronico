@@ -22,5 +22,9 @@
     {
         "id": 9,
         "descricao": "Alimentos"
+    },
+    {
+        "id": 10,
+        "descricao": "2"
     }
 ]

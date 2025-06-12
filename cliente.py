@@ -79,7 +79,6 @@ class Clientes:
                         email=dic["email"],
                         fone=dic["fone"]
                 )
-                   
                     cls.objetos.append(cliente)
         except FileNotFoundError:
             pass    
@@ -106,12 +105,10 @@ class Clientes:
         cls.abrir()
         return [str(cliente) for cliente in cls.objetos]
 
-    
     @classmethod
     def listar_objetos(cls):
         cls.abrir()
         return cls.objetos
-
     
     @classmethod
     def listar_id(cls, id):
@@ -127,6 +124,7 @@ class Clientes:
             cls.objetos.remove(x)
             cls.objetos.append(obj)
             cls.salvar()
+    
     @classmethod
     def excluir(cls, obj):
         x = cls.listar_id(obj.get_id())

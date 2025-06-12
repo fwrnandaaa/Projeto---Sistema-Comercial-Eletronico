@@ -73,6 +73,7 @@ class Vendas:      # Persistência - Armazena os objetos em um arquivo/banco de 
         if x != None: 
             cls.objetos.remove(x)
             cls.salvar()
+    
     @classmethod
     def abrir(cls):
         cls.objetos = []

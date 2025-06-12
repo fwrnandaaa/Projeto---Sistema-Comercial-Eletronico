@@ -30,16 +30,16 @@ class VendaItem:
         if v < 0: 
             raise ValueError("ID da venda não pode ser negativo")
         else: 
-            self.__id_venda=v
+            self.__id_venda = v
     
     def set_id_produto(self, v):
-        if v <0: 
+        if v < 0: 
             raise ValueError("ID do produto não pode ser negativo")
         else: 
-            self.__id_produto=v
+            self.__id_produto = v
     
     def set_id(self, v):
-        if v <=0: 
+        if v < 0: 
             raise ValueError("ID não pode ser negativo")
         else: 
             self.__id = v

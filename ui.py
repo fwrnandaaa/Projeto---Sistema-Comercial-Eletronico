@@ -137,7 +137,7 @@ class UI:
 
             #CLIENTE
             elif op == 13:
-                venda = Venda(0, cliente.get_id(), 0)
+                venda = Venda(0)
                 Vendas.inserir(venda)
                 UI.carrinho = venda.get_id()
                 print(f"Carrinho iniciado com ID {UI.carrinho}")

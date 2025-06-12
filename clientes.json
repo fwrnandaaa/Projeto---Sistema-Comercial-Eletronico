@@ -52,5 +52,11 @@
         "nome": "Alesxandre",
         "email": "alesxandre@gmail.com",
         "fone": "(84)99924-6958"
+    },
+    {
+        "id": 11,
+        "nome": "Erika",
+        "email": "erika@gmail.com",
+        "fone": "84 4002-8922"
     }
 ]
