@@ -1,0 +1,10 @@
+import streamlit as st
+from quadrado import Quadrado
+
+class QuadradoUI2:
+    def main():
+        print("Cálculo com quadrado")
+        a = input("Informe a base/altura do quadrado"):
+        q = Quadrado(float(a))
+        print(q)
+        print(f"Área: {q.area()}")
