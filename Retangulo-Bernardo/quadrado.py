@@ -8,4 +8,4 @@ class Quadrado:
         return f"Base/Altura = {self.__a}"
     
     def calc_area(self):
-        return self.__a ** 2
+        return math.pow(self.__a, 2)
