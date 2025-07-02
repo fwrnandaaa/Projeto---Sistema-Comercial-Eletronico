@@ -66,8 +66,9 @@ class UI:
                 print("| 15-Visualizar carrinho                         |")
                 print("| 16-Inserir produto no carrinho                 |")
                 print("| 17-Confirmar a compra                          |")
+                print("| 99-Logout                                      |")
                 print("|------------------------------------------------|")
-                print("| 99-FIM                                         |")
+                print("|                                                |")
                 print("|------------------------------------------------|")
 
             try:
@@ -173,7 +174,8 @@ class UI:
                     UI.carrinho = None 
 
             elif op == 99:
-                quit()
+                cliente = None
+                UI.menu()
             else:
                 print("Opção inválida.")
     
