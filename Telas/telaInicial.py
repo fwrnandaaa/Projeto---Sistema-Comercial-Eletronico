@@ -34,6 +34,8 @@ class TelaInicial:
         st.header("Cadastro")
         nome = st.text_input("Nome")
         email = st.text_input("Email")
+        password = st.text_input("Senha", type="password")
+        confirm_password = st.text_input("Confirme a senha", type="password")
         telefone = st.text_input("Telefone")
         if st.button("Cadastrar"):
             # Salvar cadastro (simulação)
