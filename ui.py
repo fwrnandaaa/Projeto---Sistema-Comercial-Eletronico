@@ -19,7 +19,6 @@ class UI:
                 print("Por favor, insira um número válido.")
                 UI.menu()
         if op == 1:
-
             email = input("Email: ")
             print()
 

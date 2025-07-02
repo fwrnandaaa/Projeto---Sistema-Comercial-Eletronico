@@ -1,0 +1,17 @@
+| Função                                 | Descrição                                                      |
+| -------------------------------------- | -------------------------------------------------------------- |
+| `st.title("Título")`                   | Mostra um título grande.                                       |
+| `st.header("Cabeçalho")`               | Mostra um cabeçalho.                                           |
+| `st.subheader("Subcabeçalho")`         | Mostra um subtítulo.                                           |
+| `st.text("Texto simples")`             | Mostra um texto simples.                                       |
+| `st.markdown("**Texto em Markdown**")` | Permite formatar com Markdown.                                 |
+| `st.write(objeto)`                     | Mostra texto, DataFrames, gráficos, etc. de forma inteligente. |
+| `st.dataframe(df)`                     | Mostra um DataFrame interativo.                                |
+| `st.line_chart(data)`                  | Gráfico de linhas.                                             |
+| `st.bar_chart(data)`                   | Gráfico de barras.                                             |
+| `st.slider()`                          | Widget de controle deslizante.                                 |
+| `st.selectbox()`                       | Lista suspensa.                                                |
+| `st.button()`                          | Botão clicável.                                                |
+| `st.file_uploader()`                   | Upload de arquivos.                                            |
+| `st.sidebar`                           | Área lateral para inputs e controles.                          |
+| `st.session_state`                     | Gerenciar o estado entre interações.                           |
