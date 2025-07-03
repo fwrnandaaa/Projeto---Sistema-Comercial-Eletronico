@@ -20,9 +20,9 @@ class UI:
                 UI.menu()
         if op == 1:
             email = input("Email: ")
-            print()
+            senha = input("Senha: ")
 
-            cliente = next((c for c in View.cliente_listar() if c.get_email() == email), None)
+            cliente = next((c for c in View.cliente_listar() if c.get_email() == email and c.get_senha() == senha), None)
             if not cliente:
                 print("Cliente não encontrado. Faça o cadastro.")
                 return 
@@ -31,8 +31,9 @@ class UI:
         if op == 2:
             nome = input("Nome: ")
             email = input("Email: ")
+            senha = input("Senha: ")
             fone = input("Número para contato: ")
-            cliente = View.cliente_inserir(nome, email, fone)
+            cliente = View.cliente_inserir(nome, email, fone, senha)
             UI.menu()
         
         if op == 3:
@@ -44,7 +45,7 @@ class UI:
             print("Erro: Nenhum usuário logado.")
             return
         while True:
-            if UI.usuario_logado.get_email() == "admin":
+            if UI.usuario_logado.get_email() == "admin" and UI.usuario_logado.get_senha() == "admin":
 
                 print("|------------------------------------------------|")
                 print("| Cadastro de Categorias                         |")
@@ -57,7 +58,7 @@ class UI:
                 print("| Cadastro de Clientes                           |")
                 print("| 9-Inserir, 10-Listar, 11-Atualizar, 12-Excluir |")
                 print("|------------------------------------------------|")
-                print("| 99-FIM                                         |")
+                print("| 99-Logout                                      |")
                 print("|------------------------------------------------|")
             else:
                 print("|------------------------------------------------|")
@@ -115,7 +116,8 @@ class UI:
                 nome = input("Nome: ")
                 email = input("Email: ")
                 fone = input("Número para contato: ")
-                View.cliente_inserir(nome, email, fone)
+                senha = input("Senha: ")
+                View.cliente_inserir(nome, email, fone, senha)
 
             elif op == 10:
                 for cat in View.cliente_listar():
@@ -126,7 +128,8 @@ class UI:
                 nome = input("Novo nome: ")
                 email= input("Novo email: ")
                 fone = input("Novo numero para contato: ")
-                View.cliente_atualizar(nome, email, fone, cliente_para_att)
+                senha = input("Nova senha: ")
+                View.cliente_atualizar(nome, email, fone, senha, cliente_para_att)  
             elif op==12:
                 id = int(input("ID do cliente: "))
                 View.cliente_excluir(id)
@@ -174,7 +177,7 @@ class UI:
                     UI.carrinho = None 
 
             elif op == 99:
-                cliente = None
+                UI.usuario_logado = None
                 UI.menu()
             else:
                 print("Opção inválida.")

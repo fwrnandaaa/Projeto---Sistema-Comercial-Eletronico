@@ -2,11 +2,12 @@ import json
 
 
 class Cliente:
-    def __init__(self, nome, email, fone, id=0):
+    def __init__(self, nome, email, fone, senha, id=0):
         self.set_id(id)
         self.set_nome(nome)
         self.set_email(email)
         self.set_fone(fone)
+        self.set_senha(senha)
 
     # getters
     def get_id(self):
@@ -23,6 +24,9 @@ class Cliente:
 
     def get_fone(self):
         return self.__fone
+        
+    def get_senha(self):
+        return self.__senha
 
 
     # setters
@@ -46,6 +50,12 @@ class Cliente:
         else:
             self.__email = v
 
+    def set_senha(self, v):
+        if v== "":
+            raise ValueError("Senha não pode estar em branco")
+        else:
+            self.__senha = v
+
 
     def set_fone(self, v):
         if v == "":
@@ -61,7 +71,8 @@ class Cliente:
             "id": self.__id,
             "nome": self.__nome,
             "email": self.__email,
-            "fone": self.__fone
+            "fone": self.__fone,
+             "senha": self.__senha 
         }
 
 class Clientes:
@@ -77,7 +88,8 @@ class Clientes:
                         id=dic["id"],
                         nome=dic["nome"],
                         email=dic["email"],
-                        fone=dic["fone"]
+                        fone=dic["fone"],
+                        senha=dic["senha"]
                 )
                     cls.objetos.append(cliente)
         except FileNotFoundError:
@@ -131,6 +143,8 @@ class Clientes:
         if x != None: 
             cls.objetos.remove(x)
             cls.salvar()
+
+
 
 
 

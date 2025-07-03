@@ -11,14 +11,14 @@ class View:
     @staticmethod
     def cadastrar_admin():
         for cliente in Clientes.listar_objetos():
-            if cliente.get_email() == "admin":
+            if cliente.get_email() == "admin" and cliente.get_senha() == "admin":
                 return
-        View.cliente_inserir("admin", "admin", "1234")  
+        View.cliente_inserir("admin", "admin", "1234", "admin")  
 
     # CLIENTE
     @staticmethod
-    def cliente_inserir(nome, email, fone):
-        c = Cliente(nome, email, fone, 0)
+    def cliente_inserir(nome, email, fone, senha):
+        c = Cliente(nome, email, fone, senha, 0)
         Clientes.inserir(c)
 
     @staticmethod
@@ -30,13 +30,13 @@ class View:
         return Clientes.listar_id()
     
     @staticmethod
-    def cliente_atualizar(nome, email, fone, id):
-        c = Cliente(nome, email, fone, id)
+    def cliente_atualizar(nome, email, fone, senha, id):
+        c = Cliente(nome, email, fone, senha, id)
         Clientes.atualizar(c)
 
     @staticmethod
     def cliente_excluir(id):
-        c = Cliente("teste", "teste", "teste", id)
+        c = Cliente("teste", "teste", "teste", "teste", id)
         Clientes.excluir(c)
 
     # CARRINHO

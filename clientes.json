@@ -3,24 +3,28 @@
         "id": 1,
         "nome": "admin",
         "email": "admin",
-        "fone": "1234"
+        "fone": "1234",
+        "senha": "admin"
     },
     {
         "id": 2,
-        "nome": "Fernanda",
-        "email": "fernanda",
-        "fone": "12345"
+        "nome": "Fer",
+        "email": "nanda",
+        "fone": "5896",
+        "senha": "1234"
     },
     {
         "id": 3,
-        "nome": "Erika",
-        "email": "erika",
-        "fone": "198673"
+        "nome": "fer",
+        "email": "p",
+        "fone": "852",
+        "senha": "098"
     },
     {
         "id": 4,
-        "nome": "f",
-        "email": "er",
-        "fone": "123"
+        "nome": "Julia",
+        "email": "julia@",
+        "fone": "12345",
+        "senha": "julinha"
     }
 ]
