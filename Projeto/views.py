@@ -55,7 +55,7 @@ class View:
         vi = VendaItem(0, qtd, preco)
         vi.set_id_venda(id_carrinho)
         vi.set_id_produto(id_produto)
-        VendasItens.inserir(vi)  # Faltava inserir o item no carrinho
+        VendaItens.inserir(vi)  # Faltava inserir o item no carrinho
 
         carrinho = Vendas.listar_id(id_carrinho)
         if carrinho is None:
@@ -68,7 +68,7 @@ class View:
     @staticmethod
     def verificar_desconto_carrinho(id_carrinho):
         total_bruto = 0
-        for item in VendasItens.listar():
+        for item in VendaItens.listar():
             if item.get_id_venda() == id_carrinho:
                 total_bruto += item.get_qtd() * item.get_preco()
 
@@ -147,7 +147,7 @@ class View:
         carrinho.set_total(total_final)
         Vendas.atualizar(carrinho)
 
-        for item in VendasItens.listar():
+        for item in VendaItens.listar():
             if item.get_id_venda() == id_carrinho:
                 produto = Produtos.listar_id(item.get_id_produto())
                 if produto:
@@ -158,9 +158,9 @@ class View:
     # LIMPAR CARRINHO
     @staticmethod
     def limpar_carrinho(id_carrinho):
-        for item in VendasItens.listar():
+        for item in VendaItens.listar():
             if item.get_id_venda() == id_carrinho:
-                VendasItens.excluir(item)
+                VendaItens.excluir(item)
 
         carrinho = Vendas.listar_id(id_carrinho)
         if carrinho:
@@ -169,11 +169,11 @@ class View:
     @staticmethod
     def total_carrinho(id_carrinho):
         total = 0
-        for item in VendasItens.listar():
+        for item in VendaItens.listar():
             if item.get_id_venda() == id_carrinho:  # Aqui está a correção
                 total += item.get_qtd() * item.get_preco()
         return total
     # VER CARRINHO
     @staticmethod
     def ver_carrinho(id_carrinho):
-        return [item for item in VendasItens.listar() if item.get_id_venda() == id_carrinho]
+        return [item for item in VendaItens.listar() if item.get_id_venda() == id_carrinho]

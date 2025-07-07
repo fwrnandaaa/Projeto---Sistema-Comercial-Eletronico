@@ -41,7 +41,7 @@ class ManterProdutoUI:
         x = cls.listar_id(obj.get_id())
         if x != None: 
             cls.objetos.remove(x)
-           cls.salvar()
+            cls.salvar()
         import streamlit as st
 
 import pandas as pd
