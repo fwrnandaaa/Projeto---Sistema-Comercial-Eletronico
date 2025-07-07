@@ -22,4 +22,18 @@ def get_desc(self):
     return self.__descricao
 
 class Categorias(Modelo):
+    @classmethod
+    def abrir(cls):
+        try:    
+            with open("categorias.json", mode="r") as arquivo:
+                s = json.load(arquivo)
+                for dic in s: 
+                    obj = Categoria(dic["id"], dic["descricao"])
+                    cls.objetos.append(obj)
+        except FileNotFoundError:
+            pass
+    @classmethod
+    def salvar(cls):
+        with open("categorias.json", mode="w") as arquivo:
+            json.dump(cls.objetos, arquivo, default = vars)
     
