@@ -1,6 +1,6 @@
 import streamlit as st
 from views import View
-from templates.mantercategoriaUI import ManterCategoriaUI
+from templates.mantercategoria import ManterCategoriaUI
 from templates.manterclienteUI import ManterClienteUI
 from templates.manterprodutoUI import ManterProdutoUI
 from templates.loginUI import LoginUI

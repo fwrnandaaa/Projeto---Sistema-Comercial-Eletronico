@@ -1,6 +1,6 @@
 import json
 
-from categoria import Categoria, Categorias
+from models.categoria import Categoria, Categorias
 
 class Produto:
     def __init__(self, descricao, preco, estoque,id=0):

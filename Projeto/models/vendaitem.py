@@ -72,7 +72,7 @@ class VendaItem:
         obj.set_id_produto(dic.get("id_produto", 0))
         return obj
     
-class VendasItens:      # Persistência - Armazena os objetos em um arquivo/banco de dados
+class VendaItens:      # Persistência - Armazena os objetos em um arquivo/banco de dados
     objetos = []   # atributo de classe / estático - Não tem instância
     
     @classmethod
