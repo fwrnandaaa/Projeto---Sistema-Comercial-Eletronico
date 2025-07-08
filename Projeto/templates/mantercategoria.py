@@ -24,32 +24,17 @@ class ManterCategoriaUI:
             st.dataframe(df)
 #tenho verificar se daqui pra baixo ta certo msm
     @classmethod
-    def listar(cls):
-        cls.abrir()
-        return cls.objetos 
+    def listar():
+      pass
 
     @classmethod
-    def inserir(cls, obj):
-        cls.abrir()
-        m = 0
-        for x in cls.objetos:
-            if x.get_id() > m: m = x.get_id()
-        obj.set_id(m + 1)  
-        cls.objetos.append(obj)
-        cls.salvar() 
+    def inserir():
+       pass
 
     @classmethod
-    def atualizar(cls, obj):
-        cls.abrir()
-        for i, x in enumerate(cls.objetos):
-            if x.get_id() == obj.get_id():
-                cls.objetos[i] = obj
-                cls.salvar()
-                break
+    def atualizar():
+       pass
                 
     @classmethod
-    def excluir(cls, obj):
-        x = cls.listar_id(obj.get_id())
-        if x != None: 
-            cls.objetos.remove(x)
-            cls.salvar()
+    def excluir():
+        pass

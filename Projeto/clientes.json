@@ -2,15 +2,15 @@
     {
         "id": 1,
         "nome": "fernanda",
-        "email": "teste",
-        "fone": "123456",
-        "senha": "wayv1277"
+        "email": "fernanda",
+        "fone": "12345",
+        "senha": "1234"
     },
     {
         "id": 2,
         "nome": "admin",
         "email": "admin",
-        "fone": "123456",
+        "fone": "1234",
         "senha": "admin"
     }
 ]
