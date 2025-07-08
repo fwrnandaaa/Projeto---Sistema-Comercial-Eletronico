@@ -14,9 +14,9 @@ class IndexUI:
     
     def menu_admin():
         op = st.sidebar.selectbox("Menu", ["Manter Categorias", "Manter Clientes", "Manter Produtos", "Sair"])
-        if op == "Manter Categorias": ManterCategoriaUI.main()
-        if op == "Manter Clientes": ManterClienteUI.main()
-        if op == "Manter Produtos": ManterProdutoUI.main()
+        if op == "Manter Categorias": ManterCategoriaUI()
+        if op == "Manter Clientes": ManterClienteUI()
+        if op == "Manter Produtos": ManterProdutoUI()
         if op == "Sair": 
             del st.session_state["cliente_id"]
             del st.session_state["cliente_nome"]
@@ -35,3 +35,4 @@ class IndexUI:
 
 View.cadastrar_admin()
 IndexUI.main()
+#kkk
