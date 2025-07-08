@@ -17,22 +17,22 @@ class View:
 
     # CLIENTE
     # Na sua View
-@staticmethod
-def cliente_autenticar(email, senha):
-    try:
-        clientes = Clientes.listar_objetos()
-        for cliente in clientes:
-            if cliente.get_email() == email and cliente.get_senha() == senha:
-                return {
-                    "id": cliente.get_id(),
-                    "nome": cliente.get_nome(),
-                    "admin": (email == "admin" and senha == "admin")
-                }
-        return None
-        
-    except Exception as e:
-        print(f"Erro ao autenticar: {str(e)}")
-        return None
+    @staticmethod
+    def cliente_autenticar(email, senha):
+        try:
+            clientes = Clientes.listar_objetos()
+            for cliente in clientes:
+                if cliente.get_email() == email and cliente.get_senha() == senha:
+                    return {
+                        "id": cliente.get_id(),
+                        "nome": cliente.get_nome(),
+                        "admin": (email == "admin" and senha == "admin")
+                    }
+            return None
+            
+        except Exception as e:
+            print(f"Erro ao autenticar: {str(e)}")
+            return None
     @staticmethod
     def cliente_inserir(nome, email, fone, senha):
         c = Cliente(nome, email, fone, senha, 0)

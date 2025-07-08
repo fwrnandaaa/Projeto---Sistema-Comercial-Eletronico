@@ -12,5 +12,19 @@
         "email": "admin",
         "fone": "1234",
         "senha": "admin"
+    },
+    {
+        "id": 3,
+        "nome": "a",
+        "email": "b",
+        "fone": "1",
+        "senha": "1"
+    },
+    {
+        "id": 4,
+        "nome": "a",
+        "email": "a",
+        "fone": "2",
+        "senha": "2"
     }
 ]
