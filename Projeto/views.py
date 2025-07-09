@@ -13,7 +13,7 @@ class View:
         for cliente in Clientes.listar_objetos():
             if cliente.get_email() == "admin" and cliente.get_senha() == "admin":
                 return
-        View.cliente_inserir("admin", "admin", "1234", "admin")  
+        View.cliente_inserir("admin", "admin", "1234", "admin")
 
     # CLIENTE
     # Na sua View
@@ -26,13 +26,16 @@ class View:
                     return {
                         "id": cliente.get_id(),
                         "nome": cliente.get_nome(),
-                        "admin": (email == "admin" and senha == "admin")
+                       "admin": (cliente.get_email() == "admin")
+
+                        # "cliente": (email != "admin" and senha != "admin")
                     }
             return None
             
         except Exception as e:
             print(f"Erro ao autenticar: {str(e)}")
             return None
+    
     @staticmethod
     def cliente_inserir(nome, email, fone, senha):
         c = Cliente(nome, email, fone, senha, 0)
@@ -44,7 +47,7 @@ class View:
 
     @staticmethod
     def listar_id(id):
-        return Clientes.listar_id()
+        return Clientes.listar_id(id)
     
     @staticmethod
     def cliente_atualizar(nome, email, fone, senha, id):
@@ -63,6 +66,9 @@ class View:
         if produto is None:
             raise ValueError("Produto não encontrado")
         
+        if produto.get_estoque() < qtd:
+            raise ValueError("Estoque insuficiente")
+
         preco = produto.get_preco()
         vi = VendaItem(0, qtd, preco)
         vi.set_id_venda(id_carrinho)
@@ -108,6 +114,7 @@ class View:
     def categoria_inserir(nome):
         cat = Categoria(nome, 0)
         Categorias.inserir(cat)
+    
     @staticmethod
     def categoria_atualizar(id, nome):
         cat = Categoria(id, nome)
@@ -182,6 +189,7 @@ class View:
         if carrinho:
             carrinho.set_total(0)
             Vendas.atualizar(carrinho)
+    
     @staticmethod
     def total_carrinho(id_carrinho):
         total = 0
@@ -189,6 +197,7 @@ class View:
             if item.get_id_venda() == id_carrinho:  # Aqui está a correção
                 total += item.get_qtd() * item.get_preco()
         return total
+    
     # VER CARRINHO
     @staticmethod
     def ver_carrinho(id_carrinho):

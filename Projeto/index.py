@@ -4,7 +4,7 @@ from templates.mantercategoria import ManterCategoriaUI
 from templates.manterclienteUI import ManterClienteUI
 from templates.manterprodutoUI import ManterProdutoUI
 from templates.loginUI import LoginUI
-#from templates.listarcomprasUI import ListarComprasUI
+from templates.listarcomprasUI import ListarComprasUI
 from templates.AbrirContaUI import AbrirContaUI
 
 
@@ -17,23 +17,24 @@ class IndexUI:
     def menu_admin():
         op = st.sidebar.selectbox("Menu", ["Manter Categorias", "Manter Clientes", "Manter Produtos", "Sair"])
         if op == "Manter Categorias": ManterCategoriaUI.main()
-        if op == "Manter Clientes": ManterClienteUI()
-        if op == "Manter Produtos": ManterProdutoUI()
+        if op == "Manter Clientes": ManterClienteUI.main()
+        if op == "Manter Produtos": ManterProdutoUI.main()
         if op == "Sair": 
             del st.session_state["cliente_id"]
             del st.session_state["cliente_nome"]
             del st.session_state["admin"]
             st.rerun()
-    #def menu_usuario():
-     #       op = st.sidebar.selectbox("Menu", ["Listar minhas compras", "Comprar novamente", "Listar produtos","Inserir produto no carrinho", "Visualizar o carrinho", "Confirmar a compra", "Sair"])
-     #       if op == "Listar minhas compras": ListarComprasUI.main()
-     #       #if op == "Manter Clientes": ManterClienteUI()
-     #       #if op == "Manter Produtos": ManterProdutoUI()
-     #       if op == "Sair": 
-     #           del st.session_state["cliente_id"]
-     #           del st.session_state["cliente_nome"]
-      #          del st.session_state["admin"]
-     #           st.rerun()
+            
+    def menu_usuario():
+           op = st.sidebar.selectbox("Menu", ["Listar minhas compras", "Comprar novamente", "Listar produtos","Inserir produto no carrinho", "Visualizar o carrinho", "Confirmar a compra", "Sair"])
+           if op == "Listar minhas compras": ListarComprasUI.main()
+           #if op == "Manter Clientes": ManterClienteUI()
+           #if op == "Manter Produtos": ManterProdutoUI()
+           if op == "Sair": 
+               del st.session_state["cliente_id"]
+               del st.session_state["cliente_nome"]
+               del st.session_state["admin"]
+               st.rerun()
         
     @staticmethod
     def main():

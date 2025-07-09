@@ -1,7 +1,5 @@
 import streamlit as st
 from views import View
-import streamlit as st
-from views import View
 
 class LoginUI:
     def main():
