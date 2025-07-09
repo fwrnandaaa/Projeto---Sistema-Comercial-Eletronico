@@ -13,10 +13,10 @@ class ManterCategoriaUI:
             ManterCategoriaUI.categoria_listar()
         with tab2:
             ManterCategoriaUI.categoria_inserir()
-        with tab3:
-            ManterCategoriaUI.categoria_atualizar()
-        with tab4:
-            ManterCategoriaUI.categoria_excluir()
+       # with tab3:
+       #     ManterCategoriaUI.categoria_atualizar()
+       # with tab4:
+       #     ManterCategoriaUI.categoria_excluir()
         
 
     @classmethod 

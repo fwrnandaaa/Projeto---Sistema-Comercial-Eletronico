@@ -2,9 +2,9 @@ import json
 from models.modelo import Modelo
 
 class Categoria:
-    def __init__(self, id, decricao):
-        set_id(self.__id)
-        set_desc(self.__descricao)
+    def __init__(self, id, descricao):
+        self.set_id(id)
+        self.set_desc(descricao)
 
     def set_id(self, v):
         if v < 0:
@@ -23,14 +23,23 @@ class Categoria:
         return self.__descricao
 
 class Categorias(Modelo):
+    objetos = []  # Se não existir, garanta isso aqui
+
+    @classmethod
+    def inserir(cls, obj):
+        cls.objetos.append(obj)
+        cls.salvar()
+
     @classmethod
     def abrir(cls):
         try:    
             with open("categorias.json", mode="r") as arquivo:
+                cls.objetos = [] 
                 s = json.load(arquivo)
-                for dic in s: 
-                    obj = Categoria(dic["id"], dic["descricao"])
+                for dic in s:
+                    obj = Categoria(dic["_Categoria__id"], dic["_Categoria__descricao"])
                     cls.objetos.append(obj)
+
         except FileNotFoundError:
             pass
     @classmethod

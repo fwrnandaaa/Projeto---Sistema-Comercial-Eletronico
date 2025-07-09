@@ -110,11 +110,15 @@ class View:
             }
 
     # CATEGORIA
+
+
     @staticmethod
     def categoria_inserir(nome):
-        cat = Categoria(nome, 0)
+        novo_id = max(cat.get_id() for cat in Categorias.objetos) + 1
+        cat = Categoria(novo_id, nome)  # ⬅️ Aqui você sempre cria com ID = 0
         Categorias.inserir(cat)
-    
+
+            
     @staticmethod
     def categoria_atualizar(id, nome):
         cat = Categoria(id, nome)
@@ -122,7 +126,8 @@ class View:
 
     @staticmethod
     def categoria_listar():
-        return Categorias.listar()
+         Categorias.abrir()  
+         return Categorias.objetos
     
     @staticmethod
     def categoria_atualizar(id, nome):
