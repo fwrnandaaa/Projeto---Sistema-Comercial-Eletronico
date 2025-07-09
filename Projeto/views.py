@@ -108,6 +108,10 @@ class View:
     def categoria_inserir(nome):
         cat = Categoria(nome, 0)
         Categorias.inserir(cat)
+    @staticmethod
+    def categoria_atualizar(id, nome):
+        cat = Categoria(id, nome)
+        Categorias.atualizar(cat)
 
     @staticmethod
     def categoria_listar():
