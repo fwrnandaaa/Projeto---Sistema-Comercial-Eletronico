@@ -1,24 +1,10 @@
 [
     {
-        "id": 2,
-        "nome": "joao",
-        "email": "joao123",
-        "fone": "122",
-        "senha": "1234"
-    },
-    {
         "id": 3,
         "nome": "ana",
         "email": "ana@gmail.com",
         "fone": "456987",
         "senha": "1234"
-    },
-    {
-        "id": 4,
-        "nome": "yasmim",
-        "email": "yasmim@gmail.com",
-        "fone": "456987",
-        "senha": "123645"
     },
     {
         "id": 5,
