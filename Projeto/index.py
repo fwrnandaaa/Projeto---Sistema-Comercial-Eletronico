@@ -47,4 +47,5 @@ class IndexUI:
                 IndexUI.menu_usuario()
 
 View.cadastrar_admin()
+
 IndexUI.main()

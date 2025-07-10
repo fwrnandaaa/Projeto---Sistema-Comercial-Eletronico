@@ -180,6 +180,23 @@ class View:
 
     # LIMPAR CARRINHO
     @staticmethod
+    def listar_carrinho(id_carrinho):
+        itens = []
+        for item in VendaItens.listar():
+            if item.get_id_venda() == id_carrinho:
+                produto = Produtos.listar_id(item.get_id_produto())
+                if produto:
+                    itens.append({
+                        "Produto": produto.get_descricao(),
+                        "Qtd": item.get_qtd(),
+                        "Preço unitário": item.get_preco(),
+                        "Subtotal": round(item.get_qtd() * item.get_preco(), 2)
+                    })
+        return itens
+
+
+
+    @staticmethod
     def limpar_carrinho(id_carrinho):
         for item in VendaItens.listar():
             if item.get_id_venda() == id_carrinho:
