@@ -67,3 +67,4 @@ class Categorias(Modelo):
         if not encontrou:
             raise ValueError("Categoria não encontrada para atualização")
         cls.salvar()
+        

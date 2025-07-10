@@ -29,11 +29,12 @@ class Modelo():
             cls.Objetos.append(x)
             cls.salvar()
 
+
     @classmethod
     def excluir(cls, obj):
-        cls.listar_id(obj.get_id())
-        if x != None: 
-            cls.objetos.remove(x)
+        objeto = cls.listar_id(obj.get_id())
+        if objeto != None:
+            cls.objetos.remove(objeto)
             cls.salvar()
 
     @classmethod

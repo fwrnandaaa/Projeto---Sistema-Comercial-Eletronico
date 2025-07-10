@@ -15,8 +15,8 @@ class ManterCategoriaUI:
             ManterCategoriaUI.categoria_inserir()
         with tab3:
             ManterCategoriaUI.categoria_atualizar()
-       # with tab4:
-       #     ManterCategoriaUI.categoria_excluir()
+        with tab4:
+            ManterCategoriaUI.categoria_excluir()
         
 
     @classmethod 
@@ -67,7 +67,20 @@ class ManterCategoriaUI:
                     st.rerun()
                 except Exception as erro:
                     st.error(erro)
-                    
-    @classmethod
-    def excluir():
-        pass
+
+    @classmethod 
+    def categoria_excluir(cls):
+        categorias = View.categoria_listar()
+        if (len(categorias) == 0):
+            st.write("Nenhuma categoria cadastrada")
+        else:
+            aux = st.selectbox("Exclusão de categoria", categorias)
+       
+            if st.button("Excluir"):
+                try:
+                    View.categoria_excluir(aux.get_id())
+                    st.success("Categoria excluída")
+                    time.sleep(2)
+                    st.rerun()
+                except Exception as erro:
+                    st.error(erro)

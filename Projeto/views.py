@@ -136,11 +136,8 @@ class View:
 
     @staticmethod
     def categoria_excluir(id):
-        cat = Categorias.listar_id(int(id))
-        if cat is not None:
-            Categorias.excluir(cat)
-        else:
-            raise ValueError("Categoria não encontrada para exclusão")
+        c = Categoria(id, "teste")
+        Categorias.excluir(c)
     
     # PRODUTO
     @staticmethod
