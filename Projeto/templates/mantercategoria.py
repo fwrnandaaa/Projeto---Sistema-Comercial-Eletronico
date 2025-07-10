@@ -13,8 +13,8 @@ class ManterCategoriaUI:
             ManterCategoriaUI.categoria_listar()
         with tab2:
             ManterCategoriaUI.categoria_inserir()
-       # with tab3:
-       #     ManterCategoriaUI.categoria_atualizar()
+        with tab3:
+            ManterCategoriaUI.categoria_atualizar()
        # with tab4:
        #     ManterCategoriaUI.categoria_excluir()
         
@@ -47,18 +47,27 @@ class ManterCategoriaUI:
                 '_Categoria__d':'Descrição',
             }, inplace=True)
             st.dataframe(df, hide_index=True)
-    @classmethod
-    def listar():
-      pass
 
-    @classmethod
-    def inserir():
-       pass
 
-    @classmethod
-    def atualizar():
-       pass
-                
+    @classmethod 
+    def categoria_atualizar(cls):
+        categorias = View.categoria_listar()
+        if len(categorias) == 0:
+            st.write("Nenhuma categoria cadastrada")
+        else:
+            cats = st.selectbox("Descrição antiga", categorias)
+
+            descricao = st.text_input("Nova descrição", cats.get_desc())
+
+            if st.button("Atualizar"):
+                try:
+                    View.categoria_atualizar(cats.get_id(), descricao)
+                    st.success("Categoria atualizada")
+                    time.sleep(2)
+                    st.rerun()
+                except Exception as erro:
+                    st.error(erro)
+                    
     @classmethod
     def excluir():
         pass

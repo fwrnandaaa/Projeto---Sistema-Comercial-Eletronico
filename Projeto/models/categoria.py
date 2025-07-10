@@ -21,6 +21,9 @@ class Categoria:
 
     def get_desc(self):
         return self.__descricao
+    
+    def __str__(self):
+        return self.get_desc() 
 
 class Categorias(Modelo):
     objetos = []  # Se não existir, garanta isso aqui
@@ -46,4 +49,21 @@ class Categorias(Modelo):
     def salvar(cls):
         with open("categorias.json", mode="w") as arquivo:
             json.dump(cls.objetos, arquivo, default = vars)
-    
+
+    @classmethod
+    def atualizar(cls, obj_atualizado):
+        cls.abrir()
+        
+        encontrou = False
+        for i, obj in enumerate(cls.objetos):
+            if obj.get_id() == obj_atualizado.get_id():
+                try:
+                    obj.set_desc(obj_atualizado.get_desc())
+                    encontrou = True
+                    break
+                except ValueError as e:
+                    raise ValueError(f"Dados inválidos: {e}")
+        
+        if not encontrou:
+            raise ValueError("Categoria não encontrada para atualização")
+        cls.salvar()
