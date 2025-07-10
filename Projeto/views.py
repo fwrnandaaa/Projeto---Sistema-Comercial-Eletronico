@@ -51,8 +51,8 @@ class View:
         return Clientes.listar_id(id)
     
     @staticmethod
-    def cliente_atualizar(nome, email, fone, senha, id):
-        c = Cliente(nome, email, fone, senha, id)
+    def cliente_atualizar(id, nome, email, fone, senha):
+        c = Cliente(nome, email, fone, senha, id)  # Note a ordem dos parâmetros
         Clientes.atualizar(c)
 
     @staticmethod

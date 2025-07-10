@@ -130,12 +130,21 @@ class Clientes:
         return None               
     
     @classmethod
-    def atualizar(cls, obj):
-        x = cls.listar_id(obj.get_id())
-        if x != None: 
-            cls.objetos.remove(x)
-            cls.objetos.append(obj)
-            cls.salvar()
+    def atualizar(cls, obj_atualizado):
+        cls.abrir()
+        
+        for i, obj in enumerate(cls.objetos):
+            if obj.get_id() == obj_atualizado.get_id():
+                try:
+                    # Atualiza TODOS os campos do objeto existente
+                    obj.set_nome(obj_atualizado.get_nome())
+                    obj.set_email(obj_atualizado.get_email())
+                    obj.set_fone(obj_atualizado.get_fone())
+                    obj.set_senha(obj_atualizado.get_senha())
+                    cls.salvar()  # Salva as alterações
+                    return True
+                except ValueError as e:
+                    raise ValueError(f"Dados inválidos: {e}")
     
     @classmethod
     def excluir(cls, obj):
