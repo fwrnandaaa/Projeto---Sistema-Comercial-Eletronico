@@ -3,47 +3,50 @@ import json
 from models.categoria import Categoria, Categorias
 
 class Produto:
-    def __init__(self, descricao, preco, estoque,id=0):
+    def __init__(self, descricao, preco, estoque, id_cat, id=0):
         self.set_id(id)
         self.set_descricao(descricao)
         self.set_preco(preco)
         self.set_estoque(estoque)
-        self.set_id_categoria(0)
+        self.set_id_categoria(id_cat)
         
     def set_id(self, id):
         if id < 0:
-            raise ValueError("ID não pode ser negativo!")
+            raise ValueError("ID não pode ser negativo")
         else:
             self.__id = id
 
+    def set_descricao(self, v):
+        if v == " ":
+            raise ValueError("Descrição não pode estar vazio")
+        else:
+            self.__descricao = v
+
+    def set_preco(self, v):
+        preco_float = float(v) if isinstance(v, str) else v
+        if preco_float < 0:
+            raise ValueError("Preço não pode ser negativo")
+        self.__preco = preco_float
+        
+    def set_estoque(self, v):
+        if not isinstance(v, int):
+            raise ValueError("Estoque deve ser inteiro")
+        if v < 0:
+            raise ValueError("Estoque não pode ser negativo")
+        else:
+            self.__estoque = v
+
     def get_id(self):
         return self.__id
-    
-    def set_descricao(self, descricao):
-        if descricao == " ":
-            raise ValueError("Descrição não pode estar vazio!")
-        else:
-            self.__descricao = descricao
 
     def get_descricao(self):
         return self.__descricao
     
-    def set_preco(self, preco):
-        if preco < 0:
-            raise ValueError("Preço não pode ser negativo!")
-        else:
-            self.__preco = preco
 
     def get_preco(self):
         return self.__preco
     
-    def set_estoque(self, estoque):
-        if not isinstance(estoque, int):
-            raise ValueError("Estoque deve ser inteiro!")
-        if estoque < 0:
-            raise ValueError("Estoque não pode ser negativo!")
-        else:
-            self.__estoque = estoque
+
 
     def get_estoque(self):
         return self.__estoque
@@ -53,7 +56,7 @@ class Produto:
 
     def set_id_categoria(self, id_categoria):
         if id_categoria < 0:
-            raise ValueError("ID categoria não pode ser negativo!")
+            raise ValueError("ID categoria não pode ser negativo")
         self.__id_categoria = id_categoria
 
     def __str__(self):

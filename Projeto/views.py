@@ -43,15 +43,16 @@ class View:
 
     @staticmethod
     def cliente_listar():
-        return Clientes.listar_objetos()
+         Clientes.abrir()  
+         return Clientes.objetos
 
     @staticmethod
     def listar_id(id):
         return Clientes.listar_id(id)
     
     @staticmethod
-    def cliente_atualizar(nome, email, fone, senha, id):
-        c = Cliente(nome, email, fone, senha, id)
+    def cliente_atualizar(id, nome, email, fone, senha):
+        c = Cliente(nome, email, fone, senha, id)  # Note a ordem dos parâmetros
         Clientes.atualizar(c)
 
     @staticmethod
@@ -110,11 +111,15 @@ class View:
             }
 
     # CATEGORIA
+
+
     @staticmethod
     def categoria_inserir(nome):
-        cat = Categoria(nome, 0)
+        novo_id = max(cat.get_id() for cat in Categorias.objetos) + 1
+        cat = Categoria(novo_id, nome)  # ⬅️ Aqui você sempre cria com ID = 0
         Categorias.inserir(cat)
-    
+
+            
     @staticmethod
     def categoria_atualizar(id, nome):
         cat = Categoria(id, nome)
@@ -122,7 +127,8 @@ class View:
 
     @staticmethod
     def categoria_listar():
-        return Categorias.listar()
+         Categorias.abrir()  
+         return Categorias.objetos
     
     @staticmethod
     def categoria_atualizar(id, nome):
@@ -131,16 +137,13 @@ class View:
 
     @staticmethod
     def categoria_excluir(id):
-        cat = Categorias.listar_id(int(id))
-        if cat is not None:
-            Categorias.excluir(cat)
-        else:
-            raise ValueError("Categoria não encontrada para exclusão")
+        c = Categoria(id, "teste")
+        Categorias.excluir(c)
     
     # PRODUTO
     @staticmethod
     def produto_inserir(nome, preco, estoque, id_categoria):
-        p = Produto(nome, preco, estoque)
+        p = Produto(nome, preco, estoque, id_categoria)
         p.set_id_categoria(id_categoria)
         Produtos.inserir(p)    
 
@@ -149,8 +152,8 @@ class View:
         return Produtos.listar()
     
     @staticmethod
-    def produto_atualizar(descricao, preco, estoque, id):
-        p = Produto(descricao, preco, estoque, id)
+    def produto_atualizar(id, descricao, preco, estoque, idcat):
+        p = Produto(descricao, preco, estoque, idcat, id)
         Produtos.atualizar(p)
 
     @staticmethod

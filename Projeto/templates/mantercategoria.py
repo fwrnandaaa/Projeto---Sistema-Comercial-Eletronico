@@ -47,18 +47,40 @@ class ManterCategoriaUI:
                 '_Categoria__d':'Descrição',
             }, inplace=True)
             st.dataframe(df, hide_index=True)
-    @classmethod
-    def listar():
-      pass
 
-    @classmethod
-    def inserir():
-       pass
 
-    @classmethod
-    def atualizar():
-       pass
-                
-    @classmethod
-    def excluir():
-        pass
+    @classmethod 
+    def categoria_atualizar(cls):
+        categorias = View.categoria_listar()
+        if len(categorias) == 0:
+            st.write("Nenhuma categoria cadastrada")
+        else:
+            cats = st.selectbox("Descrição antiga", categorias)
+
+            descricao = st.text_input("Nova descrição", cats.get_desc())
+
+            if st.button("Atualizar"):
+                try:
+                    View.categoria_atualizar(cats.get_id(), descricao)
+                    st.success("Categoria atualizada")
+                    time.sleep(2)
+                    st.rerun()
+                except Exception as erro:
+                    st.error(erro)
+
+    @classmethod 
+    def categoria_excluir(cls):
+        categorias = View.categoria_listar()
+        if (len(categorias) == 0):
+            st.write("Nenhuma categoria cadastrada")
+        else:
+            aux = st.selectbox("Exclusão de categoria", categorias)
+       
+            if st.button("Excluir"):
+                try:
+                    View.categoria_excluir(aux.get_id())
+                    st.success("Categoria excluída")
+                    time.sleep(2)
+                    st.rerun()
+                except Exception as erro:
+                    st.error(erro)

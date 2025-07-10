@@ -18,7 +18,7 @@ class ManterClienteUI:
         else:    
             list_dic = []
             for obj in clientes:
-                dic_cliente = obj.to_json() 
+                dic_cliente = obj.to_dict() 
                 del dic_cliente["senha"] 
                 list_dic.append(dic_cliente)
             df = pd.DataFrame(list_dic)
@@ -27,10 +27,11 @@ class ManterClienteUI:
         nome = st.text_input("Informe o nome: ")
         email = st.text_input("Informe o e-mail: ")
         fone = st.text_input("Informe o fone: ")
+        senha = st.text_input("Informe a senha", type="password")
         if st.button("Cadastrar"):
             # usuário é cadastrado com senha padrão
             try:
-                View.cliente_inserir(nome, email, fone, "1234")
+                View.cliente_inserir(nome, email, fone, senha)
                 st.success("Cliente inserido com sucesso")
                 time.sleep(2)
                 st.rerun()
