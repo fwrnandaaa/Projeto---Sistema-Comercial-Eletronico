@@ -43,7 +43,8 @@ class View:
 
     @staticmethod
     def cliente_listar():
-        return Clientes.listar_objetos()
+         Clientes.abrir()  
+         return Clientes.objetos
 
     @staticmethod
     def listar_id(id):

@@ -18,7 +18,7 @@ class ManterClienteUI:
         else:    
             list_dic = []
             for obj in clientes:
-                dic_cliente = obj.to_json() 
+                dic_cliente = obj.to_dict() 
                 del dic_cliente["senha"] 
                 list_dic.append(dic_cliente)
             df = pd.DataFrame(list_dic)
