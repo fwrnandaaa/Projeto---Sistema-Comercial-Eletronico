@@ -143,7 +143,7 @@ class View:
     # PRODUTO
     @staticmethod
     def produto_inserir(nome, preco, estoque, id_categoria):
-        p = Produto(nome, preco, estoque)
+        p = Produto(nome, preco, estoque, id_categoria)
         p.set_id_categoria(id_categoria)
         Produtos.inserir(p)    
 
@@ -152,8 +152,8 @@ class View:
         return Produtos.listar()
     
     @staticmethod
-    def produto_atualizar(descricao, preco, estoque, id):
-        p = Produto(descricao, preco, estoque, id)
+    def produto_atualizar(id, descricao, preco, estoque, idcat):
+        p = Produto(descricao, preco, estoque, idcat, id)
         Produtos.atualizar(p)
 
     @staticmethod
