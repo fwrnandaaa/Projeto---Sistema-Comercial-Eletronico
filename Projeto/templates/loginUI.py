@@ -11,7 +11,9 @@ class LoginUI:
             try:
                 cliente = View.cliente_autenticar(email, senha)
                 if cliente is None:
-                    st.error("E-mail ou senha inválidos")
+                    cliente = View.entregador_autenticar(email,senha)
+                    if cliente is None:
+                        st.error("E-mail ou senha inválidos")
                 else:
                     st.session_state["cliente_id"] = cliente["id"]
                     st.session_state["cliente_nome"] = cliente["nome"]
