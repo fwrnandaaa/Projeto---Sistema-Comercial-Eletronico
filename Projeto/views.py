@@ -4,8 +4,35 @@ from models.categoria import Categoria, Categorias
 from models.produto import Produto, Produtos
 from models.venda import Venda, Vendas
 from models.vendaitem import VendaItem, VendaItens
+from models.entregador import Entregador, Entregadores
 
 class View:
+
+    #entregador
+    def entregador_inserir(nome, email, fone, senha):
+        e = Entregador(nome, email, fone, senha, 0)
+        Entregador.inserir(e)
+    def entregador_autenticar(email, senha):
+        try:
+            entregador = Entregadores.listar_objetos()
+            for e in entregador:
+                if e.get_email() == email and e.get_senha() == senha:
+                    return {
+                        "id": e.get_id(),
+                        "nome": e.get_nome(),
+                       "admin": (e.get_email() == "admin")
+
+                    }
+            return None
+            
+        except Exception as e:
+            print(f"Erro ao autenticar: {str(e)}")
+            return None
+    @staticmethod
+    def entregadores_listar():
+         Entregadores.abrir()  
+         return Entregadores.objetos
+
     verificador_desconto = False
     # ADMIN
     @staticmethod
