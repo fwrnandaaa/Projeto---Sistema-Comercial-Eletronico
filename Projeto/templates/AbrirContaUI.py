@@ -21,7 +21,9 @@ class AbrirContaUI:
                 
                 if email_existente:
                     st.error("Este e-mail já está cadastrado")
-                c = View.cliente_inserir(nome, email, fone, senha)
+                else: 
+                    c = View.entregador_inserir(nome, email, fone, senha)
+                    st.success("Entregador cadastrado com sucesso!")
 
              
     def cliente_conta():
@@ -43,7 +45,9 @@ class AbrirContaUI:
                 
                 if email_existente:
                     st.error("Este e-mail já está cadastrado")
-                c = View.entregador_inserir(nome, email, fone, senha)
+                else: 
+                    c = View.cliente_inserir(nome, email, fone, senha)
+                    st.success("Cliente cadastrado com sucesso!")
 
     def main():
         if "tipo_conta" not in st.session_state:

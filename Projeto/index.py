@@ -33,8 +33,11 @@ class IndexUI:
            if op == "Sair": 
                del st.session_state["cliente_id"]
                del st.session_state["cliente_nome"]
-               del st.session_state["admin"]
+               del st.session_state["usuario"]
                st.rerun()
+    def menu_entregador():
+          op = st.sidebar.selectbox("Menu", ["Listar minhas entregas","Confirmar entrega", "Sair"])
+
         
     @staticmethod
     def main():

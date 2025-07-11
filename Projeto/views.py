@@ -11,7 +11,7 @@ class View:
     #entregador
     def entregador_inserir(nome, email, fone, senha):
         e = Entregador(nome, email, fone, senha, 0)
-        Entregador.inserir(e)
+        Entregadores.inserir(e)
     def entregador_autenticar(email, senha):
         try:
             entregador = Entregadores.listar_objetos()
