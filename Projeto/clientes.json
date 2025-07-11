@@ -12,5 +12,33 @@
         "email": "admin",
         "fone": "1234",
         "senha": "admin"
+    },
+    {
+        "id": 6,
+        "nome": "leandro",
+        "email": "leandro",
+        "fone": "245",
+        "senha": "1234"
+    },
+    {
+        "id": 7,
+        "nome": "leandro",
+        "email": "leandro",
+        "fone": "245",
+        "senha": "1234"
+    },
+    {
+        "id": 8,
+        "nome": "leandro",
+        "email": "leandro",
+        "fone": "245",
+        "senha": "1234"
+    },
+    {
+        "id": 9,
+        "nome": "leandro",
+        "email": "leandro",
+        "fone": "245",
+        "senha": "1234"
     }
 ]
