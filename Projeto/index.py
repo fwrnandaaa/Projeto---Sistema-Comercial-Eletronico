@@ -6,6 +6,7 @@ from templates.manterprodutoUI import ManterProdutoUI
 from templates.loginUI import LoginUI
 from templates.listarcomprasUI import ListarComprasUI
 from templates.AbrirContaUI import AbrirContaUI
+from templates.listarProduto import ListarProdutoUI
 
 
 class IndexUI:
@@ -28,8 +29,8 @@ class IndexUI:
     def menu_usuario():
            op = st.sidebar.selectbox("Menu", ["Listar minhas compras", "Comprar novamente", "Listar produtos","Inserir produto no carrinho", "Visualizar o carrinho", "Confirmar a compra", "Sair"])
            if op == "Listar minhas compras": ListarComprasUI.main()
-           #if op == "Manter Clientes": ManterClienteUI()
-           #if op == "Manter Produtos": ManterProdutoUI()
+           if op == "Listar produtos": ListarProdutoUI.main()
+    
            if op == "Sair": 
                del st.session_state["cliente_id"]
                del st.session_state["cliente_nome"]
