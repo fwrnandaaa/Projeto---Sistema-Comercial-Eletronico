@@ -1,25 +1,28 @@
 import streamlit as st
-import pandas as pd
 from views import View
 
 class ListarComprasUI:
     @staticmethod
     def main():
         st.title("Minhas Compras")
-        
-        (tab1,) = st.tabs(["Listar"])
-        with tab1:
-            ListarComprasUI.listar()
 
-    @staticmethod
-    def listar():
-        carrinho = View.listar_carrinho(id_carrinho=st.session_state["id_cliente"])
-        try:
-            if not carrinho:
-                st.info("Nenhuma compra feita.")
-            else:
-                df = pd.DataFrame([item.to_dict() for item in carrinho])
-                st.dataframe(df)
-                st.success("Carrinho listado com sucesso!")
-        except Exception as e:
-            st.error(f"Erro ao adicionar produto: {str(e)}")
+        if "id_cliente" not in st.session_state:
+            st.error("Você precisa estar logado.")
+            return
+
+        compras = View.listar_compras_cliente(st.session_state["id_cliente"])
+
+        if not compras:
+            st.info("Nenhuma compra confirmada.")
+            return
+
+        for venda in compras:
+            st.subheader(f"Compra #{venda.get_id()} - Data: {venda.get_data()} - Total: R$ {venda.get_total():.2f}")
+            itens = View.listar_itens_venda(venda.get_id())
+            for item in itens:
+                st.write(
+                    f"- Produto ID: {item.get_id_produto()} | "
+                    f"Qtd: {item.get_qtd()} | "
+                    f"Preço: R$ {item.get_preco():.2f} | "
+                    f"Subtotal: R$ {item.get_qtd() * item.get_preco():.2f}"
+                )

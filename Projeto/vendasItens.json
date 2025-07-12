@@ -5,5 +5,26 @@
         "preco": 5.0,
         "id_venda": 1,
         "id_produto": 0
+    },
+    {
+        "id": 2,
+        "qtd": 10,
+        "preco": 10.0,
+        "id_venda": 2,
+        "id_produto": 0
+    },
+    {
+        "id": 3,
+        "qtd": 2,
+        "preco": 10.0,
+        "id_venda": 2,
+        "id_produto": 0
+    },
+    {
+        "id": 4,
+        "qtd": 1,
+        "preco": 50000.0,
+        "id_venda": 3,
+        "id_produto": 0
     }
 ]

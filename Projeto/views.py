@@ -43,7 +43,16 @@ class View:
         View.cliente_inserir("admin", "admin", "1234", "admin")
 
     # CLIENTE
-    # Na sua View
+    @staticmethod
+    def listar_compras_cliente(id_cliente):
+        Vendas.abrir()
+        return [v for v in Vendas.objetos if v.get_id_cliente() == id_cliente]
+
+    @staticmethod
+    def listar_itens_venda(id_venda):
+        VendaItens.abrir()
+        return [i for i in VendaItens.objetos if i.get_id_venda() == id_venda]
+
     @staticmethod
     def cliente_autenticar(email, senha):
         try:

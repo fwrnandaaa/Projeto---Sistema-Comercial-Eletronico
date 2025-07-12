@@ -7,11 +7,6 @@ class InserirProdutoCarrinhoUI:
     def main():
         st.title('Inserir Produto no Carrinho')
 
-        # 🔑 Verifica se o cliente está logado e tem id_cliente
-        #if 'id_cliente' not in st.session_state:
-         #   st.error("Você precisa estar logado para adicionar produtos ao carrinho.")
-         #   return
-
         produtos = View.produto_listar()
 
         if len(produtos) == 0:
@@ -27,7 +22,7 @@ class InserirProdutoCarrinhoUI:
 
                 if st.form_submit_button("Adicionar ao carrinho"):
                     try:
-                        # ✅ Se ainda não existe carrinho, cria um
+                       
                         if 'carrinho_id' not in st.session_state:
                             id_carrinho = View.inicializar_carrinho(st.session_state.id_cliente)
                             st.session_state.carrinho_id = id_carrinho

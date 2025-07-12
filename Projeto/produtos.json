@@ -1,27 +1,6 @@
 [
     {
         "id": 0,
-        "descricao": "Limao",
-        "preco": 10.0,
-        "estoque": 29,
-        "id_categoria": 2
-    },
-    {
-        "id": 0,
-        "descricao": "Batata",
-        "preco": 30.0,
-        "estoque": 50,
-        "id_categoria": 3
-    },
-    {
-        "id": 0,
-        "descricao": "Fiat Uno",
-        "preco": 50000.0,
-        "estoque": 20,
-        "id_categoria": 0
-    },
-    {
-        "id": 0,
         "descricao": "Toalha",
         "preco": 100.0,
         "estoque": 50,
@@ -33,5 +12,26 @@
         "preco": 5.0,
         "estoque": 23,
         "id_categoria": 2
+    },
+    {
+        "id": 0,
+        "descricao": "Limao",
+        "preco": 10.0,
+        "estoque": 19,
+        "id_categoria": 2
+    },
+    {
+        "id": 0,
+        "descricao": "Batata",
+        "preco": 30.0,
+        "estoque": 48,
+        "id_categoria": 3
+    },
+    {
+        "id": 0,
+        "descricao": "Fiat Uno",
+        "preco": 50000.0,
+        "estoque": 19,
+        "id_categoria": 0
     }
 ]
