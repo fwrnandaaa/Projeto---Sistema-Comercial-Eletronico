@@ -88,6 +88,13 @@ class View:
 
     # CARRINHO
     @staticmethod
+    def inicializar_carrinho(id_cliente):
+        carrinho = Venda(0)  
+        carrinho.set_id_cliente(id_cliente)
+        Vendas.inserir(carrinho)
+        return carrinho.get_id()  
+
+    @staticmethod
     def inserir_produto_no_carrinho(id_carrinho, id_produto, qtd):
         produto = Produtos.listar_id(id_produto)
         if produto is None:

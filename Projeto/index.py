@@ -7,6 +7,8 @@ from templates.loginUI import LoginUI
 from templates.listarcomprasUI import ListarComprasUI
 from templates.AbrirContaUI import AbrirContaUI
 from templates.listarProduto import ListarProdutoUI
+from templates.inserirprodutonocarrinhoUI import InserirProdutoCarrinhoUI
+from templates.visualizarcarrinho import VisualizarCarrinhoUI
 
 
 class IndexUI:
@@ -30,6 +32,9 @@ class IndexUI:
            op = st.sidebar.selectbox("Menu", ["Listar minhas compras", "Comprar novamente", "Listar produtos","Inserir produto no carrinho", "Visualizar o carrinho", "Confirmar a compra", "Sair"])
            if op == "Listar minhas compras": ListarComprasUI.main()
            if op == "Listar produtos": ListarProdutoUI.main()
+          # if op == "Comprar novamente": View.main()
+           if op == "Inserir produto no carrinho": InserirProdutoCarrinhoUI.main()
+           if op == "Visualizar o carrinho": VisualizarCarrinhoUI.main()
     
            elif op == "Sair":
             
@@ -45,7 +50,7 @@ class IndexUI:
            
             pass
         elif op == "Sair":
-            
+            # Limpa TODOS os dados da sessão
             for key in list(st.session_state.keys()):
                 del st.session_state[key]
             st.rerun()

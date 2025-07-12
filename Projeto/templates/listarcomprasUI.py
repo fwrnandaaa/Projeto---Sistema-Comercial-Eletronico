@@ -13,10 +13,10 @@ class ListarComprasUI:
 
     @staticmethod
     def listar():
-        carrinho = View.listar_carrinho(id_carrinho=st.session_state["cliente_id"])
+        carrinho = View.listar_carrinho(id_carrinho=st.session_state["id_cliente"])
         try:
             if not carrinho:
-                st.info("Carrinho vazio.")
+                st.info("Nenhuma compra feita.")
             else:
                 df = pd.DataFrame([item.to_dict() for item in carrinho])
                 st.dataframe(df)

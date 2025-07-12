@@ -1,0 +1,9 @@
+[
+    {
+        "id": 1,
+        "data": "12/07/2025 18:56",
+        "carrinho": true,
+        "total": 25.0,
+        "id_cliente": 6
+    }
+]

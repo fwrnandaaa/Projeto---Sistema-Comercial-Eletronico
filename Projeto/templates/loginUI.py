@@ -12,7 +12,7 @@ class LoginUI:
                 # Tenta autenticar como cliente primeiro
                 cliente = View.cliente_autenticar(email, senha)
                 if cliente is not None:
-                    st.session_state["cliente_id"] = cliente["id"]
+                    st.session_state["id_cliente"] = cliente["id"]
                     st.session_state["cliente_nome"] = cliente["nome"]
                     st.session_state["admin"] = cliente["admin"]
                     st.session_state["tipo_usuario"] = "admin" if cliente["admin"] else "usuario"
