@@ -29,7 +29,7 @@ class IndexUI:
             st.rerun()
             
     def menu_usuario():
-           op = st.sidebar.selectbox("Menu", ["Listar minhas compras", "Comprar novamente", "Listar produtos","Inserir produto no carrinho", "Visualizar o carrinho", "Confirmar a compra", "Sair"])
+           op = st.sidebar.selectbox("Menu", ["Listar minhas compras", "Comprar novamente", "Listar produtos","Inserir produto no carrinho", "Visualizar o carrinho", "Sair"])
            if op == "Listar minhas compras": ListarComprasUI.main()
            if op == "Listar produtos": ListarProdutoUI.main()
           # if op == "Comprar novamente": View.main()

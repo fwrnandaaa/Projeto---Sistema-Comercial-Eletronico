@@ -22,7 +22,7 @@ class ListarComprasUI:
             for item in itens:
                 st.write(
                     f"- Produto ID: {item.get_id_produto()} | "
-                    f"Qtd: {item.get_qtd()} | "
-                    f"Preço: R$ {item.get_preco():.2f} | "
-                    f"Subtotal: R$ {item.get_qtd() * item.get_preco():.2f}"
+                    f" Qtd: {item.get_qtd()} | "
+                    f" Preço: R$ {item.get_preco():} | "
+                    f" Subtotal: R$ {item.get_qtd() * item.get_preco()}"
                 )
