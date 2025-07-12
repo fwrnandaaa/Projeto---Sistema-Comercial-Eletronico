@@ -20,10 +20,10 @@ class IndexUI:
         if op == "Manter Categorias": ManterCategoriaUI.main()
         if op == "Manter Clientes": ManterClienteUI.main()
         if op == "Manter Produtos": ManterProdutoUI.main()
-        if op == "Sair": 
-            del st.session_state["cliente_id"]
-            del st.session_state["cliente_nome"]
-            del st.session_state["admin"]
+        elif op == "Sair":
+          
+            for key in list(st.session_state.keys()):
+                del st.session_state[key]
             st.rerun()
             
     def menu_usuario():
@@ -31,25 +31,38 @@ class IndexUI:
            if op == "Listar minhas compras": ListarComprasUI.main()
            if op == "Listar produtos": ListarProdutoUI.main()
     
-           if op == "Sair": 
-               del st.session_state["cliente_id"]
-               del st.session_state["cliente_nome"]
-               del st.session_state["usuario"]
-               st.rerun()
+           elif op == "Sair":
+            
+                for key in list(st.session_state.keys()):
+                    del st.session_state[key]
+                st.rerun()
     def menu_entregador():
-          op = st.sidebar.selectbox("Menu", ["Listar minhas entregas","Confirmar entrega", "Sair"])
-
+        op = st.sidebar.selectbox("Menu", ["Listar minhas entregas", "Confirmar entrega", "Sair"])
+        if op == "Listar minhas entregas":
+            
+            pass
+        elif op == "Confirmar entrega":
+           
+            pass
+        elif op == "Sair":
+            
+            for key in list(st.session_state.keys()):
+                del st.session_state[key]
+            st.rerun()
         
     @staticmethod
     def main():
-        if "cliente_id" not in st.session_state:
+        if "tipo_usuario" not in st.session_state:
             IndexUI.menu_visitante()
         else:
-            if "admin" in st.session_state and st.session_state["admin"]:
+            if st.session_state["tipo_usuario"] == "admin":
                 IndexUI.menu_admin()
-            else:
+            elif st.session_state["tipo_usuario"] == "usuario":
                 IndexUI.menu_usuario()
+            elif st.session_state["tipo_usuario"] == "entregador":
+                IndexUI.menu_entregador()
 
+    # ... (mantenha os outros métodos igual)
 View.cadastrar_admin()
 
 IndexUI.main()

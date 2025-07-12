@@ -55,7 +55,6 @@ class View:
                         "nome": cliente.get_nome(),
                        "admin": (cliente.get_email() == "admin")
 
-                        # "cliente": (email != "admin" and senha != "admin")
                     }
             return None
             

@@ -9,16 +9,25 @@ class LoginUI:
         
         if st.button("Entrar"):
             try:
+                # Tenta autenticar como cliente primeiro
                 cliente = View.cliente_autenticar(email, senha)
-                if cliente is None:
-                    cliente = View.entregador_autenticar(email,senha)
-                    if cliente is None:
-                        st.error("E-mail ou senha inválidos")
-                else:
+                if cliente is not None:
                     st.session_state["cliente_id"] = cliente["id"]
                     st.session_state["cliente_nome"] = cliente["nome"]
                     st.session_state["admin"] = cliente["admin"]
+                    st.session_state["tipo_usuario"] = "admin" if cliente["admin"] else "usuario"
                     st.success("Login realizado com sucesso!")
                     st.rerun()
+                else:
+                    # Se não for cliente, tenta como entregador
+                    entregador = View.entregador_autenticar(email, senha)
+                    if entregador is not None:
+                        st.session_state["entregador_id"] = entregador["id"]
+                        st.session_state["entregador_nome"] = entregador["nome"]
+                        st.session_state["tipo_usuario"] = "entregador"
+                        st.success("Login como entregador realizado!")
+                        st.rerun()
+                    else:
+                        st.error("E-mail ou senha inválidos")
             except Exception as e:
                 st.error(f"Erro ao autenticar: {str(e)}")
