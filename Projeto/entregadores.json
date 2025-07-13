@@ -14,16 +14,9 @@
         "senha": "12345"
     },
     {
-        "id": 7,
-        "nome": "maria",
-        "email": "maria",
-        "fone": "12345",
-        "senha": "12345"
-    },
-    {
         "id": 8,
-        "nome": "joana darc",
-        "email": "joanadarc",
+        "nome": "lucas",
+        "email": "Lucas",
         "fone": "12345",
         "senha": "12345"
     },
