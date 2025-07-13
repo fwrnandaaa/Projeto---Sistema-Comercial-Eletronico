@@ -26,5 +26,47 @@
         "preco": 50000.0,
         "id_venda": 3,
         "id_produto": 0
+    },
+    {
+        "id": 5,
+        "qtd": 1,
+        "preco": 100.0,
+        "id_venda": 4,
+        "id_produto": 0
+    },
+    {
+        "id": 6,
+        "qtd": 2,
+        "preco": 100.0,
+        "id_venda": 4,
+        "id_produto": 0
+    },
+    {
+        "id": 7,
+        "qtd": 1,
+        "preco": 100.0,
+        "id_venda": 4,
+        "id_produto": 0
+    },
+    {
+        "id": 8,
+        "qtd": 1,
+        "preco": 30.0,
+        "id_venda": 5,
+        "id_produto": 0
+    },
+    {
+        "id": 9,
+        "qtd": 2,
+        "preco": 30.0,
+        "id_venda": 5,
+        "id_produto": 0
+    },
+    {
+        "id": 10,
+        "qtd": 1,
+        "preco": 100.0,
+        "id_venda": 8,
+        "id_produto": 0
     }
 ]

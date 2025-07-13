@@ -9,6 +9,7 @@ from templates.AbrirContaUI import AbrirContaUI
 from templates.listarProduto import ListarProdutoUI
 from templates.inserirprodutonocarrinhoUI import InserirProdutoCarrinhoUI
 from templates.visualizarcarrinho import VisualizarCarrinhoUI
+from templates.manterentregadores import ManterEntregadoresUI
 
 
 class IndexUI:
@@ -18,9 +19,10 @@ class IndexUI:
         if op == "Abrir Conta": AbrirContaUI.main()
     
     def menu_admin():
-        op = st.sidebar.selectbox("Menu", ["Manter Categorias", "Manter Clientes", "Manter Produtos", "Sair"])
+        op = st.sidebar.selectbox("Menu", ["Manter Categorias", "Manter Clientes", "Manter Produtos", "Manter Entregadores", "Entregas em andamento", "Entregas feitas", "Sair"])
         if op == "Manter Categorias": ManterCategoriaUI.main()
         if op == "Manter Clientes": ManterClienteUI.main()
+        if op == "Manter Entregadores" : ManterEntregadoresUI.main()
         if op == "Manter Produtos": ManterProdutoUI.main()
         elif op == "Sair":
           

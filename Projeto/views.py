@@ -151,6 +151,21 @@ class View:
             return {
                 "Total do carrinho": round(total_bruto, 2)
             }
+    #ENTREGADORES
+    @staticmethod
+    def entregadores_listar():
+         Entregadores.abrir()  
+         return Entregadores.objetos
+    @staticmethod
+    def entregador_atualizar(id, nome, email, fone, senha):
+        entregador = Entregador(nome, email, fone, senha, id)  # ← Usa Entregador!
+        Entregadores.atualizar(entregador)
+
+    @staticmethod
+    
+    def entregador_excluir(id):
+        c = Entregador("teste", "teste", "teste", "teste", id)
+        Entregadores.excluir(c)
 
     # CATEGORIA
 

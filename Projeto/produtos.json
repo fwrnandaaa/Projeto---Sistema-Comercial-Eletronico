@@ -3,35 +3,35 @@
         "id": 0,
         "descricao": "Toalha",
         "preco": 100.0,
-        "estoque": 50,
+        "estoque": 49,
         "id_categoria": 5
     },
     {
         "id": 0,
         "descricao": "Laranja",
         "preco": 5.0,
-        "estoque": 23,
+        "estoque": 21,
         "id_categoria": 2
     },
     {
         "id": 0,
         "descricao": "Limao",
         "preco": 10.0,
-        "estoque": 19,
+        "estoque": 18,
         "id_categoria": 2
     },
     {
         "id": 0,
         "descricao": "Batata",
         "preco": 30.0,
-        "estoque": 48,
+        "estoque": 47,
         "id_categoria": 3
     },
     {
         "id": 0,
         "descricao": "Fiat Uno",
         "preco": 50000.0,
-        "estoque": 19,
+        "estoque": 17,
         "id_categoria": 0
     }
 ]

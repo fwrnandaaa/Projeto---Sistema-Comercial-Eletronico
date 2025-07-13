@@ -18,7 +18,7 @@ class InserirProdutoCarrinhoUI:
                     produtos,
                     format_func=lambda p: f"{p.get_descricao()} - R$ {p.get_preco():.2f}"
                 )
-                qtd = st.number_input("Quantidade", min_value=1, max_value=100, step=1)
+                qtd = st.number_input("Quantidade", min_value=1,)
 
                 if st.form_submit_button("Adicionar ao carrinho"):
                     try:
