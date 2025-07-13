@@ -41,6 +41,14 @@ class View:
             if cliente.get_email() == "admin" and cliente.get_senha() == "admin":
                 return
         View.cliente_inserir("admin", "admin", "1234", "admin")
+    @staticmethod
+    def get_nome_entregador(id_entregador):
+        entregador = Entregadores.listar_id(id_entregador)
+        if entregador:
+            return entregador.get_nome()
+        else:
+            return "Desconhecido"
+
 
     # CLIENTE
     @staticmethod
@@ -166,6 +174,14 @@ class View:
     def entregador_excluir(id):
         c = Entregador("teste", "teste", "teste", "teste", id)
         Entregadores.excluir(c)
+    @staticmethod
+    def entregas_por_entregador(id_entregador):
+        return Vendas.listar_por_entregador(id_entregador)
+
+    @staticmethod
+    def entrega_marcar_entregue(id_venda):
+        Vendas.marcar_entregue(id_venda)
+
 
     # CATEGORIA
 

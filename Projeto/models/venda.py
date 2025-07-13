@@ -122,6 +122,11 @@ class Vendas:
             if obj.get_id() == id:
                 return obj
         return None
+    @classmethod
+    def listar_por_entregador(cls, id_entregador):
+        cls.abrir()
+        return [v for v in cls.objetos if v.get_id_entregador() == id_entregador]
+
 
     @classmethod
     def excluir(cls, obj):
@@ -165,3 +170,10 @@ class Vendas:
             index = cls.objetos.index(x)
             cls.objetos[index] = obj
             cls.salvar()
+    @classmethod
+    def marcar_entregue(cls, id_venda):
+        cls.abrir()
+        venda = cls.listar_id(id_venda)
+        if venda:
+            venda.set_status("Entregue")
+            cls.atualizar(venda)

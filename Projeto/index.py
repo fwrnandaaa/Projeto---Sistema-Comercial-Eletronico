@@ -11,6 +11,8 @@ from templates.inserirprodutonocarrinhoUI import InserirProdutoCarrinhoUI
 from templates.visualizarcarrinho import VisualizarCarrinhoUI
 from templates.manterentregadores import ManterEntregadoresUI
 from templates.EntregasEmAndamento import EntregasEmAndamentoUI
+from templates.listarminhasentregasUI import MinhasEntregasUI
+from templates.confirmarentrega import ConfirmarEntregasUI
 
 
 class IndexUI:
@@ -47,14 +49,10 @@ class IndexUI:
                 st.rerun()
     def menu_entregador():
         op = st.sidebar.selectbox("Menu", ["Listar minhas entregas", "Confirmar entrega", "Sair"])
-        if op == "Listar minhas entregas":
-            
-            pass
-        elif op == "Confirmar entrega":
-           
-            pass
+        if op == "Listar minhas entregas": MinhasEntregasUI.main()
+        if op == "Confirmar entrega": ConfirmarEntregasUI.main()
         elif op == "Sair":
-            # Limpa TODOS os dados da sessão
+         
             for key in list(st.session_state.keys()):
                 del st.session_state[key]
             st.rerun()

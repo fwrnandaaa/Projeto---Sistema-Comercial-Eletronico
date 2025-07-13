@@ -88,5 +88,14 @@
         "id_cliente": 6,
         "status": "Em andamento",
         "id_entregador": 9
+    },
+    {
+        "id": 11,
+        "data": "13/07/2025 09:43",
+        "carrinho": true,
+        "total": 142.5,
+        "id_cliente": 6,
+        "status": "Entregue",
+        "id_entregador": 9
     }
 ]

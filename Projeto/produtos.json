@@ -1,20 +1,6 @@
 [
     {
         "id": 0,
-        "descricao": "Batata",
-        "preco": 30.0,
-        "estoque": 47,
-        "id_categoria": 3
-    },
-    {
-        "id": 0,
-        "descricao": "Fiat Uno",
-        "preco": 50000.0,
-        "estoque": 17,
-        "id_categoria": 0
-    },
-    {
-        "id": 0,
         "descricao": "Toalha",
         "preco": 100.0,
         "estoque": 48,
@@ -33,5 +19,19 @@
         "preco": 10.0,
         "estoque": 17,
         "id_categoria": 2
+    },
+    {
+        "id": 0,
+        "descricao": "Batata",
+        "preco": 30.0,
+        "estoque": 46,
+        "id_categoria": 3
+    },
+    {
+        "id": 0,
+        "descricao": "Fiat Uno",
+        "preco": 50000.0,
+        "estoque": 13,
+        "id_categoria": 0
     }
 ]

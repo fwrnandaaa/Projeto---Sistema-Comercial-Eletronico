@@ -15,7 +15,7 @@ class EntregasEmAndamentoUI:
                 "Data": v.get_data(),
                 "Cliente": v.get_id_cliente(),
                 "Status": v.get_status(),
-                "Entregador": v.get_id_entregador()
+                "Entregador": View.get_nome_entregador(v.get_id_entregador())
             } for v in andamento])
             st.dataframe(df)
         else:
