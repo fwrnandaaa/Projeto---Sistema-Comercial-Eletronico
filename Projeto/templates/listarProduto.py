@@ -5,7 +5,7 @@ from views import View
 class ListarProdutoUI:
     @staticmethod
     def main():
-        st.headProdutos")
+        st.head = ("Produtos")
         tab1, = st.tabs(["Listar"])
         with tab1:
             ListarProdutoUI.listar() 
