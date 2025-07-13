@@ -67,4 +67,15 @@ class Categorias(Modelo):
         if not encontrou:
             raise ValueError("Categoria não encontrada para atualização")
         cls.salvar()
-        
+    @classmethod
+    def excluir(cls, obj):
+        x = cls.listar_id(obj.get_id())
+        if x != None: 
+            cls.objetos.remove(x)
+            cls.salvar()
+    @classmethod
+    def listar_id(cls, id):
+        cls.abrir()
+        for obj in cls.objetos:
+            if obj.get_id() == id: return obj
+        return None    
