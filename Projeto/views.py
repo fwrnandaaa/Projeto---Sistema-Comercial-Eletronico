@@ -41,9 +41,26 @@ class View:
             if cliente.get_email() == "admin" and cliente.get_senha() == "admin":
                 return
         View.cliente_inserir("admin", "admin", "1234", "admin")
+    @staticmethod
+    def get_nome_entregador(id_entregador):
+        entregador = Entregadores.listar_id(id_entregador)
+        if entregador:
+            return entregador.get_nome()
+        else:
+            return "Desconhecido"
+
 
     # CLIENTE
-    # Na sua View
+    @staticmethod
+    def listar_compras_cliente(id_cliente):
+        Vendas.abrir()
+        return [v for v in Vendas.objetos if v.get_id_cliente() == id_cliente]
+
+    @staticmethod
+    def listar_itens_venda(id_venda):
+        VendaItens.abrir()
+        return [i for i in VendaItens.objetos if i.get_id_venda() == id_venda]
+
     @staticmethod
     def cliente_autenticar(email, senha):
         try:
@@ -55,7 +72,6 @@ class View:
                         "nome": cliente.get_nome(),
                        "admin": (cliente.get_email() == "admin")
 
-                        # "cliente": (email != "admin" and senha != "admin")
                     }
             return None
             
@@ -88,6 +104,13 @@ class View:
         Clientes.excluir(c)
 
     # CARRINHO
+    @staticmethod
+    def inicializar_carrinho(id_cliente):
+        carrinho = Venda(0)  
+        carrinho.set_id_cliente(id_cliente)
+        Vendas.inserir(carrinho)
+        return carrinho.get_id()  
+
     @staticmethod
     def inserir_produto_no_carrinho(id_carrinho, id_produto, qtd):
         produto = Produtos.listar_id(id_produto)
@@ -136,6 +159,29 @@ class View:
             return {
                 "Total do carrinho": round(total_bruto, 2)
             }
+    #ENTREGADORES
+    @staticmethod
+    def entregadores_listar():
+         Entregadores.abrir()  
+         return Entregadores.objetos
+    @staticmethod
+    def entregador_atualizar(id, nome, email, fone, senha):
+        entregador = Entregador(nome, email, fone, senha, id)  # ← Usa Entregador!
+        Entregadores.atualizar(entregador)
+
+    @staticmethod
+    
+    def entregador_excluir(id):
+        c = Entregador("teste", "teste", "teste", "teste", id)
+        Entregadores.excluir(c)
+    @staticmethod
+    def entregas_por_entregador(id_entregador):
+        return Vendas.listar_por_entregador(id_entregador)
+
+    @staticmethod
+    def entrega_marcar_entregue(id_venda):
+        Vendas.marcar_entregue(id_venda)
+
 
     # CATEGORIA
 
@@ -207,6 +253,10 @@ class View:
                     novo_estoque = produto.get_estoque() - item.get_qtd()
                     produto.set_estoque(novo_estoque)
                     Produtos.atualizar(produto)
+    @staticmethod
+    def vendas_listar():
+         Vendas.abrir()  
+         return Vendas.objetos
 
     # LIMPAR CARRINHO
     @staticmethod

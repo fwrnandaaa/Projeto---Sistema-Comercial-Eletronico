@@ -40,5 +40,12 @@
         "email": "leandro",
         "fone": "245",
         "senha": "1234"
+    },
+    {
+        "id": 10,
+        "nome": "gabriel",
+        "email": "gabriel",
+        "fone": "12345",
+        "senha": "gabriel"
     }
 ]
