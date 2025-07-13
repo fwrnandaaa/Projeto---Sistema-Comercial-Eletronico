@@ -237,6 +237,10 @@ class View:
                     novo_estoque = produto.get_estoque() - item.get_qtd()
                     produto.set_estoque(novo_estoque)
                     Produtos.atualizar(produto)
+    @staticmethod
+    def vendas_listar():
+         Vendas.abrir()  
+         return Vendas.objetos
 
     # LIMPAR CARRINHO
     @staticmethod
