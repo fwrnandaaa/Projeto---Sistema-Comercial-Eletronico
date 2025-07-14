@@ -13,7 +13,6 @@ class VisualizarCarrinhoUI:
             
         carrinho_id = st.session_state.carrinho_id
         
-    
         itens = View.listar_carrinho(carrinho_id)
         total = View.total_carrinho(carrinho_id)
         desconto_info = View.verificar_desconto_carrinho(carrinho_id)
@@ -21,11 +20,9 @@ class VisualizarCarrinhoUI:
         if not itens:
             st.warning("Carrinho vazio")
             return
-            
  
         df = pd.DataFrame(itens)
         st.dataframe(df)
-        
      
         if "Total após desconto" in desconto_info:
             st.markdown(f"""

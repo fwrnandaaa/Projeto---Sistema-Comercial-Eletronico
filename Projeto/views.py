@@ -7,11 +7,11 @@ from models.vendaitem import VendaItem, VendaItens
 from models.entregador import Entregador, Entregadores
 
 class View:
-
-    #entregador
+    # Entregador
     def entregador_inserir(nome, email, fone, senha):
         e = Entregador(nome, email, fone, senha, 0)
         Entregadores.inserir(e)
+    
     def entregador_autenticar(email, senha):
         try:
             entregador = Entregadores.listar_objetos()
@@ -28,12 +28,14 @@ class View:
         except Exception as e:
             print(f"Erro ao autenticar: {str(e)}")
             return None
+    
     @staticmethod
     def entregadores_listar():
          Entregadores.abrir()  
          return Entregadores.objetos
 
     verificador_desconto = False
+    
     # ADMIN
     @staticmethod
     def cadastrar_admin():
@@ -48,7 +50,6 @@ class View:
             return entregador.get_nome()
         else:
             return "Desconhecido"
-
 
     # CLIENTE
     @staticmethod
@@ -159,21 +160,23 @@ class View:
             return {
                 "Total do carrinho": round(total_bruto, 2)
             }
+    
     #ENTREGADORES
     @staticmethod
     def entregadores_listar():
          Entregadores.abrir()  
          return Entregadores.objetos
+    
     @staticmethod
     def entregador_atualizar(id, nome, email, fone, senha):
         entregador = Entregador(nome, email, fone, senha, id)  # ← Usa Entregador!
         Entregadores.atualizar(entregador)
 
     @staticmethod
-    
     def entregador_excluir(id):
         c = Entregador("teste", "teste", "teste", "teste", id)
         Entregadores.excluir(c)
+    
     @staticmethod
     def entregas_por_entregador(id_entregador):
         return Vendas.listar_por_entregador(id_entregador)
@@ -182,17 +185,13 @@ class View:
     def entrega_marcar_entregue(id_venda):
         Vendas.marcar_entregue(id_venda)
 
-
     # CATEGORIA
-
-
     @staticmethod
     def categoria_inserir(nome):
         novo_id = max(cat.get_id() for cat in Categorias.objetos) + 1
         cat = Categoria(novo_id, nome)  # ⬅️ Aqui você sempre cria com ID = 0
         Categorias.inserir(cat)
 
-            
     @staticmethod
     def categoria_atualizar(id, nome):
         cat = Categoria(id, nome)
@@ -253,10 +252,40 @@ class View:
                     novo_estoque = produto.get_estoque() - item.get_qtd()
                     produto.set_estoque(novo_estoque)
                     Produtos.atualizar(produto)
+    
     @staticmethod
     def vendas_listar():
          Vendas.abrir()  
          return Vendas.objetos
+
+    @staticmethod
+    def comprar_novamente(id_venda_original):
+        try:
+            venda_original = Vendas.listar_id(id_venda_original)
+            if venda_original is None:
+                raise ValueError("Nenhuma compra encontrada")
+
+            id_cliente = venda_original.get_id_cliente()
+            novo_carrinho_id = View.inicializar_carrinho(id_cliente)
+
+            encontrou_item = False
+
+            for item in VendaItens.listar():
+                if item.get_id_venda() == id_venda_original:
+                    produto = Produtos.listar_id(item.get_id_produto())
+                    if produto and produto.get_estoque() >= item.get_qtd():
+                        View.inserir_produto_no_carrinho(novo_carrinho_id, produto.get_id(), item.get_qtd())
+                        encontrou_item = True
+
+            if encontrou_item:
+                return novo_carrinho_id  # ← Retorna o ID do novo carrinho com os itens inseridos
+            else:
+                return None
+        except Exception as e:
+            print(f"Erro ao repetir compra: {str(e)}")
+            return None
+
+
 
     # LIMPAR CARRINHO
     @staticmethod
@@ -273,8 +302,6 @@ class View:
                         "Subtotal": round(item.get_qtd() * item.get_preco(), 2)
                     })
         return itens
-
-
 
     @staticmethod
     def limpar_carrinho(id_carrinho):
