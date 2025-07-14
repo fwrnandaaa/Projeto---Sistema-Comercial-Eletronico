@@ -117,5 +117,19 @@
         "preco": 100.0,
         "id_venda": 12,
         "id_produto": 0
+    },
+    {
+        "id": 18,
+        "qtd": 1,
+        "preco": 15.0,
+        "id_venda": 13,
+        "id_produto": 1
+    },
+    {
+        "id": 19,
+        "qtd": 1,
+        "preco": 5.0,
+        "id_venda": 13,
+        "id_produto": 2
     }
 ]

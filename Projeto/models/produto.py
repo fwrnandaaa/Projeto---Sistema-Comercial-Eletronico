@@ -118,8 +118,14 @@ class Produtos:
             with open("produtos.json", mode="r") as arquivo:
                 s = json.load(arquivo)
                 for dic in s:
-                    obj = Produto(dic["descricao"], dic["preco"], dic["estoque"], dic["id"])
-                    obj.set_id_categoria(dic["id_categoria"])
+                    obj = Produto(
+                        dic["descricao"],
+                        dic["preco"],
+                        dic["estoque"],
+                        dic["id_categoria"],
+                        dic["id"]  # Agora o ID certo
+                    )
+
                     cls.objetos.append(obj)
         except FileNotFoundError:
             pass

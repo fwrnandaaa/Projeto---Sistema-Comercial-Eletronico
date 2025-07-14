@@ -1,37 +1,37 @@
 [
     {
-        "id": 0,
-        "descricao": "Toalha",
-        "preco": 100.0,
-        "estoque": 48,
-        "id_categoria": 5
+        "id": 3,
+        "descricao": "Cal\u00e7as jeans",
+        "preco": 120.0,
+        "estoque": 20,
+        "id_categoria": 4
     },
     {
-        "id": 0,
-        "descricao": "Laranja",
-        "preco": 5.0,
-        "estoque": 18,
-        "id_categoria": 2
+        "id": 4,
+        "descricao": "Fiat Uno",
+        "preco": 50000.0,
+        "estoque": 20,
+        "id_categoria": 0
     },
     {
-        "id": 0,
-        "descricao": "Limao",
-        "preco": 10.0,
-        "estoque": 17,
-        "id_categoria": 2
-    },
-    {
-        "id": 0,
+        "id": 5,
         "descricao": "Batata",
-        "preco": 30.0,
-        "estoque": 46,
+        "preco": 6.5,
+        "estoque": 50,
         "id_categoria": 3
     },
     {
-        "id": 0,
-        "descricao": "Fiat Uno",
-        "preco": 50000.0,
-        "estoque": 13,
-        "id_categoria": 0
+        "id": 1,
+        "descricao": "Melancia",
+        "preco": 15.0,
+        "estoque": 9,
+        "id_categoria": 2
+    },
+    {
+        "id": 2,
+        "descricao": "Lim\u00e3o",
+        "preco": 5.0,
+        "estoque": 19,
+        "id_categoria": 2
     }
 ]
