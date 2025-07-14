@@ -14,24 +14,24 @@
         "id_categoria": 0
     },
     {
+        "id": 2,
+        "descricao": "Lim\u00e3o",
+        "preco": 5.0,
+        "estoque": 19,
+        "id_categoria": 2
+    },
+    {
         "id": 5,
         "descricao": "Batata",
         "preco": 6.5,
-        "estoque": 50,
+        "estoque": 44,
         "id_categoria": 3
     },
     {
         "id": 1,
         "descricao": "Melancia",
         "preco": 15.0,
-        "estoque": 9,
-        "id_categoria": 2
-    },
-    {
-        "id": 2,
-        "descricao": "Lim\u00e3o",
-        "preco": 5.0,
-        "estoque": 19,
+        "estoque": 5,
         "id_categoria": 2
     }
 ]

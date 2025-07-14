@@ -25,9 +25,14 @@ class VisualizarCarrinhoUI:
         st.dataframe(df)
      
         if "Total após desconto" in desconto_info:
+            # Formata o percentual para mostrar apenas os dois primeiros números
+            percentual_desconto = f"{desconto_info['Percentual do desconto']:.0f}%"
+            
             st.markdown(f"""
-            **Total Bruto:** R$ {desconto_info['Total sem desconto']:.2f}  
-            **Desconto ({desconto_info['Percentual do desconto']}%):** R$ {desconto_info['Total sem desconto'] - desconto_info['Total após desconto']:.2f}  
+            **Total Bruto:** R$ {desconto_info['Total sem desconto']:.2f}
+            
+            **Desconto ({percentual_desconto}):** R$ {desconto_info['Total sem desconto'] - desconto_info['Total após desconto']:.2f}
+            
             **Total com Desconto:** R$ {desconto_info['Total após desconto']:.2f}
             """)
         else:
@@ -35,10 +40,10 @@ class VisualizarCarrinhoUI:
         
         col1, col2 = st.columns(2)
         with col1:
-            if st.button("🔄 Atualizar Carrinho"):
+            if st.button(" Atualizar Carrinho"):
                 st.rerun()
         with col2:
-            if st.button("✅ Finalizar Compra"):
+            if st.button(" Finalizar Compra"):
                 try:
                     View.finalizar_venda(carrinho_id)
                     st.success("Compra finalizada com sucesso!")
@@ -47,7 +52,7 @@ class VisualizarCarrinhoUI:
                 except ValueError as e:
                     st.error(str(e))
         
-        if st.button("🗑️ Limpar Carrinho"):
+        if st.button(" Limpar Carrinho"):
             View.limpar_carrinho(carrinho_id)
             st.success("Carrinho limpo!")
             st.rerun()

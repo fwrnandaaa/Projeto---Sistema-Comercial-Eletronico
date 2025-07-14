@@ -32,7 +32,6 @@ class IndexUI:
             "Manter Produtos",
             "Manter Entregadores",
             "Entregas em Andamento",
-            "Entregas feitas",
             "Sair"
         ])
         if op == "Manter Categorias":

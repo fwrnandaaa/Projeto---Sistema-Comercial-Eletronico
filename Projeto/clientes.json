@@ -14,13 +14,6 @@
         "senha": "admin"
     },
     {
-        "id": 6,
-        "nome": "leandro",
-        "email": "leandro",
-        "fone": "245",
-        "senha": "1234"
-    },
-    {
         "id": 7,
         "nome": "leandro",
         "email": "leandro",
@@ -47,5 +40,12 @@
         "email": "gabriel",
         "fone": "12345",
         "senha": "gabriel"
+    },
+    {
+        "id": 11,
+        "nome": "Eduarda",
+        "email": "eduarda",
+        "fone": "741852",
+        "senha": "eduarda"
     }
 ]
